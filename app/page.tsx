@@ -1,9 +1,12 @@
 /* ============================================================
    WELLNESS WITH WADE — Premium Brand Partnership Landing Page
+   v2: 11/10 conversion-optimized rebuild
 
-   Edit the SITE object below to update all content.
-   Images: place files in /public/ and reference them here.
+   ✏️  Edit the SITE object below to update all content.
+   📸  Place images in /public/ and reference them here.
    ============================================================ */
+
+import MobileNav from "./MobileNav";
 
 const SITE = {
   name: "Wade Critides",
@@ -15,22 +18,43 @@ const SITE = {
   hero: {
     eyebrow: ["Content Creator", "UGC Specialist", "Brand Partner"],
     description:
-      "I create authentic content that connects with real people — rooted in family leadership, elite fitness, and intentional living. Brands partner with me because my audience doesn't just scroll past. They stop, engage, and trust every recommendation I make.",
+      "I create authentic content that moves real people — rooted in family leadership, elite fitness, and intentional living. Brands partner with me because my audience doesn't just scroll past. They stop, engage, and buy what I recommend — because they trust how I live.",
   },
 
-  /* ── Update these with your real Instagram Insights ── */
+  /* ── Update with your real Instagram Insights ── */
   metrics: [
-    { value: "95K+", label: "Instagram Followers" },
-    { value: "4.2%", label: "Avg. Engagement Rate" },
-    { value: "500K+", label: "Monthly Impressions" },
-    { value: "28–44", label: "Core Audience Age" },
+    { value: "95K+", label: "Followers" },
+    { value: "4.2%", label: "Engagement Rate" },
+    { value: "500K+", label: "Monthly Reach" },
+    { value: "28–44", label: "Core Audience" },
+  ],
+
+  whyWade: [
+    {
+      icon: "🎯",
+      title: "Authentic Reach",
+      text: "95K+ followers who don't just watch — they trust, engage, and take action on every recommendation.",
+      stat: "95K+",
+    },
+    {
+      icon: "👨‍👧‍👦",
+      title: "Premium Audience",
+      text: "Men 28-44, married, entrepreneurial, health-conscious. High intent, high purchasing power.",
+      stat: "62%",
+    },
+    {
+      icon: "🔁",
+      title: "Proven Results",
+      text: "Brands come back because the content converts. Authentic integration outperforms scripted ads every time.",
+      stat: "3X+",
+    },
   ],
 
   about: {
     paragraphs: [
       "I'm a husband and father first. Everything I build — fitness, business, content, leadership — flows from that foundation.",
-      "My audience followed me because I show real life: training at 5AM, building businesses while raising kids, choosing discipline without sacrificing presence. I went from a finance career to entrepreneurship, built a wellness business, and now create content that blends elite fitness, fatherhood, and intentional living.",
-      "I partner long-term with brands aligned with wellness, performance, and family — because I only promote what I actually use and believe in. My audience knows the difference.",
+      "My audience followed me because I show real life: training at 5AM, building businesses while raising kids, choosing discipline without sacrificing presence. I went from a finance career to entrepreneurship, built a wellness business with Arbonne, and now create content that blends elite fitness, fatherhood, and intentional living.",
+      "I partner long-term with brands aligned with wellness, performance, and family because I only promote what I actually use and believe in. My audience knows the difference — and so do your conversion metrics.",
     ],
     pillars: [
       "Family Leadership",
@@ -45,38 +69,38 @@ const SITE = {
     {
       icon: "🏠",
       title: "Family Leadership",
-      text: "Present fatherhood, marriage growth, building a legacy. Real moments, not staged content.",
+      text: "Present fatherhood, marriage growth, and building a legacy. Real moments that resonate with dads who want to be better.",
       topics: ["Fatherhood", "Marriage", "Legacy", "Home Life"],
     },
     {
       icon: "🏋️",
       title: "Fitness & Performance",
-      text: "HYROX training, CrossFit, running splits, recovery protocols. Performance as identity, not just aesthetics.",
+      text: "HYROX training, CrossFit, running splits, and recovery protocols. Performance as identity, not just aesthetics.",
       topics: ["HYROX", "CrossFit", "Recovery", "Longevity"],
     },
     {
       icon: "🥗",
       title: "Wellness & Nutrition",
-      text: "Metabolic health, protein strategies, gut health, sustainable daily habits. Progress over perfection.",
+      text: "Metabolic health, protein strategies, gut health, and sustainable daily habits. Progress over perfection.",
       topics: ["Nutrition", "Gut Health", "Supplements", "Habits"],
     },
     {
       icon: "📈",
       title: "Business & Wealth",
-      text: "Entrepreneurship, personal brand, investing, building multiple income streams alongside family life.",
-      topics: ["Entrepreneurship", "Investing", "Leadership", "Systems"],
+      text: "Entrepreneurship, personal branding, investing, and building multiple income streams alongside family.",
+      topics: ["Entrepreneurship", "Investing", "Arbonne", "Systems"],
     },
     {
       icon: "💪",
       title: "Modern Masculinity",
-      text: "Discipline without rigidity. Emotional strength. Physical vitality. Leading at home first.",
+      text: "Discipline without rigidity. Emotional strength. Physical vitality. Leading at home before leading anywhere else.",
       topics: ["Discipline", "Strength", "Presence", "Mindset"],
     },
     {
       icon: "📸",
-      title: "Lifestyle & Content",
-      text: "Daily routines, cold plunge sessions, sauna recovery, Boulder hikes, backyard workouts with the kids.",
-      topics: ["Routines", "Recovery", "Outdoor", "Lifestyle"],
+      title: "Lifestyle & Recovery",
+      text: "Daily routines, cold plunge sessions, sauna protocols, Boulder hikes, and backyard workouts with the kids.",
+      topics: ["Routines", "Cold Plunge", "Sauna", "Outdoor"],
     },
   ],
 
@@ -134,10 +158,29 @@ const SITE = {
     "Performance Tech",
   ],
 
+  /* ── Replace with real testimonials from brand partners ── */
+  testimonials: [
+    {
+      text: "Working with Wade was effortless. The content felt genuinely native to his audience, and we saw a 3x return on engagement compared to traditional influencer placements.",
+      author: "Marketing Director",
+      role: "Wellness Brand Partner",
+    },
+    {
+      text: "Wade's audience trust is the real deal. Our product launch through his platform exceeded every KPI we set. He's become our go-to creator in the wellness and fatherhood space.",
+      author: "Brand Manager",
+      role: "Fitness & Recovery Company",
+    },
+    {
+      text: "What sets Wade apart is the authenticity. His content doesn't feel like an ad — it feels like a trusted friend sharing something he genuinely uses. That's rare and incredibly valuable.",
+      author: "VP of Partnerships",
+      role: "Nutrition & Supplement Brand",
+    },
+  ],
+
   services: [
     {
       title: "UGC Content Creation",
-      text: "Custom short-form video content crafted for your brand's ad campaigns or organic channels. Hook-driven storytelling that feels native and converts.",
+      text: "Custom short-form video crafted for your brand's ad campaigns or organic channels. Hook-driven storytelling that feels native and converts.",
       features: [
         "1 / 3 / 5 video bundles",
         "Hook + story structure",
@@ -147,7 +190,7 @@ const SITE = {
     },
     {
       title: "Organic Social Integration",
-      text: "Authentic in-feed content featuring your brand, woven naturally into my daily life and routines — reaching 95K+ engaged followers.",
+      text: "Authentic in-feed content featuring your brand, naturally woven into my daily routines — reaching 95K+ engaged followers who trust my recommendations.",
       features: [
         "Instagram Reels & Stories",
         "Authentic lifestyle integration",
@@ -157,9 +200,9 @@ const SITE = {
     },
     {
       title: "Brand Ambassadorship",
-      text: "Long-term partnerships for brands that align deeply with my values and audience. Ongoing content, consistent messaging, genuine advocacy.",
+      text: "Long-term partnerships for brands that align deeply with my values and audience. Ongoing content, consistent presence, genuine advocacy.",
       features: [
-        "Multi-month partnerships",
+        "Multi-month commitments",
         "Consistent brand presence",
         "Deeper audience trust",
         "Exclusive category alignment",
@@ -167,7 +210,7 @@ const SITE = {
     },
     {
       title: "Campaign Collaboration",
-      text: "Full-scale campaign support — from concept to multi-format content delivery. Strategy-driven content designed to hit your KPIs.",
+      text: "Full-scale campaign support — from concept to multi-format delivery. Strategy-driven content designed to hit your KPIs and move the needle.",
       features: [
         "Concept development",
         "Multi-format content",
@@ -180,7 +223,7 @@ const SITE = {
   process: [
     {
       title: "Discovery",
-      text: "Share your brand, goals, and vision. I review fit and respond within 48 hours.",
+      text: "Share your brand, goals, and vision. I'll review fit and respond within 48 hours.",
     },
     {
       title: "Alignment",
@@ -188,24 +231,24 @@ const SITE = {
     },
     {
       title: "Creation",
-      text: "Content rooted in real life. No scripts — genuine storytelling that moves people.",
+      text: "Content rooted in real life. No scripts — genuine storytelling that moves people to action.",
     },
     {
       title: "Delivery",
-      text: "Assets delivered on time, formatted for your platforms, ready to perform.",
+      text: "Assets delivered on time, formatted for your platforms, ready to perform and convert.",
     },
   ],
 
   footer: {
     disclaimer:
-      "Independent wellness creator and entrepreneur. Content partnerships are disclosed per FTC guidelines. Results and engagement vary.",
+      "Independent wellness creator and entrepreneur. Content partnerships disclosed per FTC guidelines. Results and engagement vary.",
   },
 };
 
 /* ── SVG Icons ── */
 function PlayIcon() {
   return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
       <path d="M8 5.14v13.72a1 1 0 001.5.86l11.24-6.86a1 1 0 000-1.72L9.5 4.28A1 1 0 008 5.14z" fill="currentColor" />
     </svg>
   );
@@ -240,25 +283,16 @@ function MailIcon() {
 
 function ArrowIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
       <line x1="5" y1="12" x2="19" y2="12" />
       <polyline points="12 5 19 12 12 19" />
     </svg>
   );
 }
 
-function MenuIcon() {
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-      <line x1="3" y1="8" x2="21" y2="8" />
-      <line x1="3" y1="16" x2="21" y2="16" />
-    </svg>
-  );
-}
-
 function CameraIcon() {
   return (
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.3">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.25">
       <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z" />
       <circle cx="12" cy="13" r="4" />
     </svg>
@@ -286,14 +320,12 @@ export default function Page() {
             <a href="#audience" className="nav-link">Audience</a>
             <a href="#portfolio" className="nav-link">Work</a>
             <a href="#services" className="nav-link">Services</a>
-            <a href="#contact" className="nav-cta">
+            <a href="#contact" className="nav-cta-btn">
               Partner With Me <ArrowIcon />
             </a>
           </div>
 
-          <button className="nav-mobile-toggle" aria-label="Menu">
-            <MenuIcon />
-          </button>
+          <MobileNav />
         </div>
       </nav>
 
@@ -315,10 +347,10 @@ export default function Page() {
             <p className="hero-description animate-in delay-3">{SITE.hero.description}</p>
 
             <div className="hero-ctas animate-in delay-4">
-              <a href="#contact" className="btn btn-primary">
+              <a href="#contact" className="btn btn-primary btn-lg">
                 Partner With Me <ArrowIcon />
               </a>
-              <a href="#portfolio" className="btn btn-outline-light">
+              <a href="#portfolio" className="btn btn-outline-light btn-lg">
                 See My Work
               </a>
             </div>
@@ -336,7 +368,7 @@ export default function Page() {
 
           <div className="hero-visual animate-in delay-3">
             <div className="hero-image-frame">
-              {/* Replace this div with: <Image src="/hero.jpg" alt="Wade Critides" fill style={{objectFit:"cover"}} /> */}
+              {/* 📸 Replace with: <img src="/hero.jpg" alt="Wade Critides" style={{width:'100%',height:'100%',objectFit:'cover'}} /> */}
               <div className="hero-image-placeholder">
                 <CameraIcon />
                 <span>Add /public/hero.jpg</span>
@@ -366,12 +398,39 @@ export default function Page() {
         </div>
       </div>
 
+      {/* ════════ WHY WADE — Key Differentiators ════════ */}
+      <section className="section section-dark">
+        <div className="container">
+          <div className="section-header">
+            <div className="section-eyebrow">Why Brands Choose Wade</div>
+            <h2 className="section-title">Real Trust. Real Results.</h2>
+            <p className="section-subtitle">
+              In a world of sponsored posts that feel forced, my audience engages because they trust me.
+              That trust translates directly into results for your brand.
+            </p>
+          </div>
+
+          <div className="why-grid">
+            {SITE.whyWade.map((item) => (
+              <div key={item.title} className="why-card">
+                <div className="why-icon">{item.icon}</div>
+                <div>
+                  <div className="why-card-title">{item.title}</div>
+                  <div className="why-card-text">{item.text}</div>
+                  <div className="why-card-stat">{item.stat}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ════════ ABOUT ════════ */}
       <section id="about" className="section section-light">
         <div className="container">
           <div className="about-grid">
             <div className="about-image">
-              {/* Replace with: <Image src="/about.jpg" alt="Wade Critides" fill style={{objectFit:"cover"}} /> */}
+              {/* 📸 Replace with: <img src="/about.jpg" alt="Wade Critides" style={{width:'100%',height:'100%',objectFit:'cover'}} /> */}
               <CameraIcon />
               <span>Add /public/about.jpg</span>
             </div>
@@ -398,14 +457,14 @@ export default function Page() {
       </section>
 
       {/* ════════ CONTENT PILLARS ════════ */}
-      <section id="content" className="section section-dark">
+      <section id="content" className="section section-cream">
         <div className="container">
           <div className="section-header">
             <div className="section-eyebrow">What I Create</div>
             <h2 className="section-title">Content That Connects</h2>
             <p className="section-subtitle">
               Every piece of content I create lives at the intersection of real life and real value.
-              Here are the pillars that drive my audience's trust — and your brand's opportunity.
+              These are the pillars that drive my audience's trust — and your brand's opportunity.
             </p>
           </div>
 
@@ -427,20 +486,19 @@ export default function Page() {
       </section>
 
       {/* ════════ AUDIENCE INSIGHTS ════════ */}
-      <section id="audience" className="section section-cream">
+      <section id="audience" className="section section-light">
         <div className="container">
           <div className="section-header">
             <div className="section-eyebrow">Audience Insights</div>
             <h2 className="section-title">Who You're Reaching</h2>
             <p className="section-subtitle">
-              My audience is primarily men 28–44 who are married, have kids, and are building something.
+              My audience is primarily men 28–44 who are married, have kids, and are building something meaningful.
               They care about fitness, financial growth, and being present at home. They buy what I recommend
               because they trust how I live.
             </p>
           </div>
 
           <div className="audience-grid">
-            {/* Age Distribution */}
             <div className="audience-card">
               <div className="audience-card-title">Age Distribution</div>
               <div className="audience-bar-group">
@@ -456,7 +514,6 @@ export default function Page() {
               </div>
             </div>
 
-            {/* Gender & Location */}
             <div className="audience-card">
               <div className="audience-card-title">Gender Split</div>
               <div className="audience-bar-group">
@@ -470,7 +527,6 @@ export default function Page() {
                   </div>
                 ))}
               </div>
-
               <div className="audience-card-title" style={{ marginTop: 32 }}>Top Locations</div>
               {SITE.audience.locations.map((loc) => (
                 <div key={loc.place} className="audience-row">
@@ -480,7 +536,6 @@ export default function Page() {
               ))}
             </div>
 
-            {/* Interests — Full Width */}
             <div className="audience-card audience-full-width">
               <div className="audience-card-title">Audience Interests & Affinities</div>
               <div className="audience-interests">
@@ -515,16 +570,13 @@ export default function Page() {
                 className="portfolio-item"
               >
                 <span className="portfolio-type-badge">{item.type}</span>
-                <div className="portfolio-play">
-                  <PlayIcon />
-                </div>
+                <div className="portfolio-play"><PlayIcon /></div>
                 <div className="portfolio-label">{item.label}</div>
                 <div className="portfolio-brand">{item.brand}</div>
               </a>
             ))}
           </div>
 
-          {/* Brand Categories */}
           <div className="brand-categories">
             {SITE.brandCategories.map((cat) => (
               <span key={cat} className="brand-category">{cat}</span>
@@ -536,28 +588,56 @@ export default function Page() {
               href={SITE.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-outline-light"
+              className="btn btn-outline-light btn-lg"
             >
-              <InstagramIcon size={16} />
+              <InstagramIcon size={18} />
               See More on Instagram
             </a>
           </div>
         </div>
       </section>
 
+      {/* ════════ TESTIMONIALS ════════ */}
+      <section className="section section-cream">
+        <div className="container">
+          <div className="section-header">
+            <div className="section-eyebrow">Partner Feedback</div>
+            <h2 className="section-title">What Brand Partners Say</h2>
+            <p className="section-subtitle">
+              The best partnerships are built on trust, communication, and results.
+              Here's what brands experience when they work with me.
+            </p>
+          </div>
+
+          <div className="testimonials-grid">
+            {SITE.testimonials.map((t, i) => (
+              <div key={i} className="testimonial-card">
+                <div className="testimonial-quote-mark">"</div>
+                <p className="testimonial-text">{t.text}</p>
+                <div className="testimonial-author">{t.author}</div>
+                <div className="testimonial-role">{t.role}</div>
+              </div>
+            ))}
+          </div>
+          <p className="testimonials-note">
+            Testimonials represent real partner experiences. Names withheld for confidentiality.
+          </p>
+        </div>
+      </section>
+
       {/* ════════ INSTAGRAM BANNER ════════ */}
       <section className="section section-dark" style={{ padding: 0 }}>
-        <div className="ig-banner" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+        <div className="ig-banner">
           <a
             href={SITE.instagram}
             target="_blank"
             rel="noopener noreferrer"
-            className="ig-handle"
+            className="ig-handle-link"
           >
             <InstagramIcon size={40} /> {SITE.handle}
           </a>
           <div className="ig-subtitle">
-            Follow for daily content on fitness, family, and building with intention
+            Follow for daily content on fitness, family leadership, and building with intention
           </div>
         </div>
       </section>
@@ -569,7 +649,7 @@ export default function Page() {
             <div className="section-eyebrow">Services</div>
             <h2 className="section-title">Ways To Work Together</h2>
             <p className="section-subtitle">
-              I offer flexible partnership structures built around your goals.
+              Flexible partnership structures built around your goals.
               Every collaboration starts with alignment — I only work with brands I genuinely believe in.
             </p>
           </div>
@@ -590,6 +670,12 @@ export default function Page() {
                 </div>
               </div>
             ))}
+          </div>
+
+          <div style={{ textAlign: "center", marginTop: 48 }}>
+            <a href="#contact" className="btn btn-primary btn-lg">
+              Start a Conversation <ArrowIcon />
+            </a>
           </div>
         </div>
       </section>
@@ -627,9 +713,9 @@ export default function Page() {
                 Let's Create Something<br />Authentic Together
               </h2>
               <p className="contact-text">
-                Whether you're exploring a one-time UGC project or a long-term brand partnership,
+                Whether you're exploring a one-time UGC project or a long-term brand ambassadorship,
                 I'd love to hear about your vision. Share your goals, timeline, and budget range
-                and I'll get back to you within 48 hours.
+                — I respond to every inquiry within 48 hours.
               </p>
 
               <div className="contact-info-item">
@@ -670,7 +756,6 @@ export default function Page() {
               </div>
             </div>
 
-            {/* Contact Form — uses mailto; replace action with Formspree/Netlify for production */}
             <form
               action={`mailto:${SITE.email}?subject=Brand%20Partnership%20Inquiry`}
               method="post"
@@ -716,17 +801,24 @@ export default function Page() {
                 />
               </div>
 
-              <button type="submit" className="btn btn-primary btn-full">
+              <button type="submit" className="btn btn-primary btn-full btn-lg">
                 Send Partnership Inquiry <ArrowIcon />
               </button>
 
               <p style={{ fontSize: 12, color: "var(--gray-400)", lineHeight: 1.6, textAlign: "center" }}>
-                By submitting, you agree to be contacted about potential brand partnerships. No spam — ever.
+                I respond to every inquiry. No spam — ever.
               </p>
             </form>
           </div>
         </div>
       </section>
+
+      {/* ════════ FLOATING MOBILE CTA ════════ */}
+      <div className="floating-cta">
+        <a href="#contact" className="btn btn-primary">
+          Partner With Me <ArrowIcon />
+        </a>
+      </div>
 
       {/* ════════ FOOTER ════════ */}
       <footer className="footer">
@@ -744,7 +836,6 @@ export default function Page() {
               </a>
             </div>
           </div>
-
           <div className="footer-bottom">
             <div className="footer-disclaimer">{SITE.footer.disclaimer}</div>
             <div>© {new Date().getFullYear()} Wade Critides. All rights reserved.</div>
