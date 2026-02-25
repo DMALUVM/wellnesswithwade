@@ -169,11 +169,17 @@ ul, ol { list-style: none; }
 .hero-name {
   font-size: clamp(60px, 10vw, 120px); font-weight: 800;
   letter-spacing: -4px; line-height: 0.88; margin-bottom: 24px;
-  background: linear-gradient(135deg, #fff 0%, var(--warm-light) 40%, #fff 80%);
-  background-size: 200% auto;
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: shimmer 6s ease-in-out infinite;
+  color: var(--white);
+}
+/* Gradient shimmer — desktop only (breaks on mobile Safari) */
+@media (min-width: 769px) {
+  .hero-name {
+    background: linear-gradient(135deg, #fff 0%, var(--warm-light) 40%, #fff 80%);
+    background-size: 200% auto;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 6s ease-in-out infinite;
+  }
 }
 .hero-tagline {
   font-size: clamp(20px, 2.5vw, 28px); font-weight: 300;
@@ -582,38 +588,32 @@ ul, ol { list-style: none; }
   .floating-cta { display: block; }
   body { padding-bottom: 68px; }
 
-  /* ── HERO ── */
-  .hero { min-height: 100vh; min-height: 100svh; }
+  /* ── HERO — Clean, captivating, no clutter ── */
+  .hero { min-height: auto; }
   .hero-inner {
-    padding: 24px 0 20px;
-    min-height: calc(100vh - 72px);
-    min-height: calc(100svh - 72px);
-    justify-content: center;
+    padding: 40px 0 48px;
+    min-height: auto;
   }
-  .hero-content { padding: 0 4px; }
+  .hero-content { padding: 0; }
   .hero-name {
-    background: none !important;
-    -webkit-background-clip: unset !important;
-    -webkit-text-fill-color: var(--white) !important;
-    background-clip: unset !important;
-    color: var(--white);
-    animation: none;
-    font-size: clamp(52px, 14vw, 72px);
-    letter-spacing: -2.5px;
-    line-height: 0.9;
+    font-size: clamp(56px, 16vw, 80px);
+    letter-spacing: -3px;
+    line-height: 0.88;
     margin-bottom: 16px;
   }
-  .hero-eyebrow { font-size: 10px; letter-spacing: 2px; gap: 6px; margin-bottom: 24px; }
-  .hero-tagline { font-size: clamp(18px, 5vw, 24px); margin-bottom: 16px; }
+  .hero-eyebrow { font-size: 10px; letter-spacing: 2px; gap: 6px; margin-bottom: 20px; }
+  .hero-tagline { font-size: 20px; margin-bottom: 16px; }
   .hero-desc-full { display: none; }
   .hero-desc-short { display: block; }
-  .hero-description { font-size: 15px; line-height: 1.7; margin: 0 auto 24px; }
-  .hero-cta-partner { display: none; }
-  .hero-cta-work { width: 100%; background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.2); }
+  .hero-description { font-size: 15px; line-height: 1.7; margin: 0 auto 24px; max-width: 340px; }
+  /* Show gold CTA, hide ghost — gold converts better */
+  .hero-cta-partner { display: inline-flex; width: 100%; }
+  .hero-cta-work { display: none; }
   .hero-meta { margin-top: 20px; gap: 8px; }
   .hero-booking-badge { font-size: 12px; padding: 6px 14px; }
-  .hero-ig-link { font-size: 13px; }
-  .hero-scroll-indicator { margin-top: 20px; }
+  /* Hide IG handle and scroll indicator — reduce clutter */
+  .hero-ig-link { display: none; }
+  .hero-scroll-indicator { display: none; }
 
   /* Metrics — compact 2×2 */
   .metrics-inner { grid-template-columns: repeat(2, 1fr); }
