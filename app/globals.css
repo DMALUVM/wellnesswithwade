@@ -59,6 +59,7 @@ ul, ol { list-style: none; }
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+  height: 100%; /* Stretch inside grid cells so cards are equal height */
 }
 .reveal.revealed {
   opacity: 1;
@@ -227,7 +228,7 @@ ul, ol { list-style: none; }
 .why-card {
   text-align: center; padding: 48px 32px; border-radius: var(--r-xl);
   background: var(--dark-surface); border: 1px solid rgba(255,255,255,0.06);
-  transition: all var(--base);
+  transition: all var(--base); height: 100%;
 }
 .why-card:hover { border-color: rgba(196,162,101,0.25); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.3); }
 .why-icon {
@@ -295,6 +296,7 @@ ul, ol { list-style: none; }
 .pillar-card {
   background: var(--white); border: 1px solid var(--gray-100); border-radius: var(--r-xl);
   padding: 36px 28px; transition: all var(--base); position: relative; overflow: hidden;
+  display: flex; flex-direction: column; height: 100%;
 }
 .pillar-card::after {
   content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
@@ -309,7 +311,7 @@ ul, ol { list-style: none; }
   margin-bottom: 24px; font-size: 24px;
 }
 .pillar-card-title { font-size: 20px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 10px; }
-.pillar-card-text { font-size: 14px; line-height: 1.75; color: var(--gray-500); margin-bottom: 20px; }
+.pillar-card-text { font-size: 14px; line-height: 1.75; color: var(--gray-500); margin-bottom: 20px; flex: 1; }
 .pillar-topics { display: flex; flex-wrap: wrap; gap: 6px; }
 .pillar-topic {
   font-size: 11px; font-weight: 600; padding: 5px 12px; border-radius: var(--r-full);
@@ -320,7 +322,7 @@ ul, ol { list-style: none; }
 .audience-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .audience-card {
   background: var(--white); border: 1px solid var(--gray-100); border-radius: var(--r-xl); padding: 36px;
-  transition: all var(--base);
+  transition: all var(--base); height: 100%;
 }
 .audience-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
 .audience-card-title { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gray-400); margin-bottom: 24px; }
@@ -388,10 +390,11 @@ ul, ol { list-style: none; }
 .testimonial-card {
   background: var(--white); border: 1px solid var(--gray-100); border-radius: var(--r-xl);
   padding: 40px 32px; position: relative; transition: all var(--base);
+  display: flex; flex-direction: column; height: 100%;
 }
 .testimonial-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.06); }
 .testimonial-stars { color: var(--warm); font-size: 16px; letter-spacing: 2px; margin-bottom: 20px; }
-.testimonial-text { font-size: 15px; line-height: 1.8; color: var(--gray-600); margin-bottom: 24px; font-style: italic; }
+.testimonial-text { font-size: 15px; line-height: 1.8; color: var(--gray-600); margin-bottom: 24px; font-style: italic; flex: 1; }
 .testimonial-divider { width: 32px; height: 2px; background: var(--warm); margin-bottom: 16px; opacity: 0.4; }
 .testimonial-author { font-size: 14px; font-weight: 700; color: var(--dark-surface); }
 .testimonial-role { font-size: 13px; color: var(--gray-400); margin-top: 2px; }
@@ -402,6 +405,7 @@ ul, ol { list-style: none; }
 .service-card {
   background: var(--white); border: 1px solid var(--gray-100); border-radius: var(--r-xl);
   padding: 44px; transition: all var(--base); position: relative; overflow: hidden;
+  display: flex; flex-direction: column; height: 100%;
 }
 .service-card::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
@@ -412,7 +416,7 @@ ul, ol { list-style: none; }
 .service-card:hover { border-color: rgba(196,162,101,0.3); box-shadow: 0 16px 40px rgba(0,0,0,0.06); transform: translateY(-3px); }
 .service-number { font-size: 56px; font-weight: 800; color: var(--gray-100); letter-spacing: -3px; line-height: 1; margin-bottom: 12px; }
 .service-card-title { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 12px; }
-.service-card-text { font-size: 15px; line-height: 1.75; color: var(--gray-500); margin-bottom: 24px; }
+.service-card-text { font-size: 15px; line-height: 1.75; color: var(--gray-500); margin-bottom: 24px; flex: 1; }
 .service-features { display: flex; flex-direction: column; gap: 12px; }
 .service-feature { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--gray-600); }
 .service-check {
