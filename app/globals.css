@@ -606,8 +606,8 @@ ul, ol { list-style: none; }
   .hero-desc-full { display: none; }
   .hero-desc-short { display: block; }
   .hero-description { font-size: 15px; line-height: 1.7; margin: 0 auto 24px; max-width: 340px; }
-  /* Show gold CTA, hide ghost — gold converts better */
-  .hero-cta-partner { display: inline-flex; width: 100%; }
+  /* Hide both hero CTAs — floating sticky bar handles conversion */
+  .hero-cta-partner { display: none; }
   .hero-cta-work { display: none; }
   .hero-meta { margin-top: 20px; gap: 8px; }
   .hero-booking-badge { font-size: 12px; padding: 6px 14px; }
