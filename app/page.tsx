@@ -1,660 +1,918 @@
-const content = {
-  brandName: "Wellness With Wade",
+/* ============================================================
+   WELLNESS WITH WADE — Premium Brand Partnership Landing Page
+   v3: 11/10 — mobile-killer hero, scroll reveal, manifesto
+
+   ✏️  Edit the SITE object below to update all content.
+   📸  Place images in /public/ and reference them here.
+   ============================================================ */
+
+import MobileNav from "./MobileNav";
+import Reveal from "./Reveal";
+
+const SITE = {
+  name: "Wade Critides",
   handle: "@wellnesswithwade",
-  headline: "Helping busy people get healthier daily with simple systems that stick.",
-  subhead:
-    "I create practical wellness content, coach people who want consistency, and mentor builders who want structure, community, and accountability.",
-  primaryCtas: [
-    { label: "Brand collaborations", href: "#brands" },
-    { label: "Coaching", href: "#coaching" },
-    { label: "Business mentorship", href: "#business" }
-  ],
-  quickProof: [
-    { label: "Audience", value: "95K+", note: "Instagram followers (edit this)" },
-    { label: "Content", value: "Daily", note: "Habits, fitness, dad life" },
-    { label: "Vibe", value: "Real", note: "Systems over hype" }
-  ],
-  brandEmail: "collabs@wellnesswithwade.com",
-  coachingEmail: "hello@wellnesswithwade.com",
-  sections: {
-    brands: {
-      title: "Collaboration options that feel authentic and convert.",
-      subtitle:
-        "I partner with brands I genuinely use and create content designed to build trust. Share your goals, timeline, and budget range and I’ll reply with availability and options.",
-      offers: [
-        {
-          title: "UGC video packages",
-          body: "Short-form content for ads or organic use.",
-          bullets: ["1 / 3 / 5 video bundles", "Hook + story structure", "Usage rights optional"]
-        },
-        {
-          title: "Social integrations",
-          body: "On-feed and stories that fit my audience.",
-          bullets: ["Reels/TikTok style integrations", "Story sequences with CTA", "Giveaways when aligned"]
-        },
-        {
-          title: "Photo + lifestyle",
-          body: "Clean product visuals with real-life context.",
-          bullets: ["Product + lifestyle set", "Gym / family / routine settings", "Fast turnaround available"]
-        }
-      ]
-    },
-    coaching: {
-      title: "Coaching for consistency, not perfection.",
-      subtitle:
-        "If you’re tired of starting over, I’ll help you build a simple weekly routine that fits your real life.",
-      cards: [
-        {
-          title: "90-day reset",
-          body: "A practical system to create momentum.",
-          bullets: ["Weekly plan + check-ins", "Simple nutrition structure", "Habit tracking + accountability"]
-        },
-        {
-          title: "Accountability + community",
-          body: "Support that keeps you moving.",
-          bullets: ["Weekly touchpoints", "Clear weekly goals", "Encouragement and support"]
-        },
-        {
-          title: "Lifestyle-first approach",
-          body: "Designed for busy schedules.",
-          bullets: ["Realistic meal routine", "Training that fits your week", "Sleep and stress basics"]
-        }
-      ]
-    },
-    business: {
-      title: "Mentorship, systems, and a weekly rhythm you can follow.",
-      subtitle:
-        "If you want to build alongside a community and learn how I approach leadership, content, and consistency, let’s talk.",
-      leftBullets: [
-        "Onboarding guidance and weekly rhythm",
-        "Community + accountability",
-        "Content and communication support",
-        "Leadership development over hype"
-      ],
-      fit: {
-        good: ["Want structure + support", "Like learning by doing", "Can show up weekly"],
-        bad: ["Want instant results", "Hate accountability", "Don’t want to learn"]
-      }
-    }
+  instagram: "https://instagram.com/wellnesswithwade",
+  email: "collabs@wellnesswithwade.com",
+  tagline: "Husband. Father. High Performer.",
+
+  hero: {
+    eyebrow: ["Content Creator", "UGC Specialist", "Brand Partner"],
+    description:
+      "I create authentic content that moves real people — rooted in family leadership, elite fitness, and intentional living. Brands partner with me because my audience doesn't just scroll past. They stop, engage, and buy what I recommend — because they trust how I live.",
+    descriptionShort:
+      "Authentic content that moves real people. My audience trusts how I live — and that trust converts for your brand.",
   },
-  faq: [
-    {
-      q: "Do you have a media kit?",
-      a: "Yes. Send your timeline, deliverables, and budget range and I’ll reply with availability and options."
-    },
-    {
-      q: "What coaching do you offer?",
-      a: "Simple, structured coaching focused on consistent habits. Apply and I’ll recommend the best path."
-    },
-    {
-      q: "Do you mentor people in your wellness business?",
-      a: "Yes. If you want community, a weekly rhythm, and mentorship, reach out and we’ll schedule a chat."
-    },
-    { q: "How fast do you respond?", a: "Typically within 24–48 hours on weekdays." }
+
+  metrics: [
+    { value: "95K+", label: "Followers" },
+    { value: "4.2%", label: "Engagement Rate" },
+    { value: "500K+", label: "Monthly Reach" },
+    { value: "28–44", label: "Core Audience" },
   ],
-  footerNote:
-    "Independent wellness creator and entrepreneur. Results vary and depend on individual effort and circumstances."
+
+  whyWade: [
+    {
+      icon: "🎯",
+      title: "Authentic Reach",
+      text: "95K+ followers who don't just watch — they trust, engage, and take action on every recommendation.",
+      stat: "95K+",
+    },
+    {
+      icon: "👨‍👧‍👦",
+      title: "Premium Audience",
+      text: "Men 28-44, married, entrepreneurial, health-conscious. High intent, high purchasing power.",
+      stat: "62%",
+    },
+    {
+      icon: "🔁",
+      title: "Proven Results",
+      text: "Brands come back because the content converts. Authentic integration outperforms scripted ads every time.",
+      stat: "3X+",
+    },
+  ],
+
+  about: {
+    paragraphs: [
+      "I'm a husband and father first. Everything I build — fitness, business, content, leadership — flows from that foundation.",
+      "My audience followed me because I show real life: training at 5AM, building businesses while raising kids, choosing discipline without sacrificing presence. I went from a finance career to entrepreneurship, built a wellness business with Arbonne, and now create content that blends elite fitness, fatherhood, and intentional living.",
+      "I partner long-term with brands aligned with wellness, performance, and family because I only promote what I actually use and believe in. My audience knows the difference — and so do your conversion metrics.",
+    ],
+    pillars: [
+      "Family Leadership",
+      "Elite Fitness",
+      "Wellness & Nutrition",
+      "Entrepreneurship",
+      "Modern Masculinity",
+    ],
+  },
+
+  manifesto: {
+    quote: "Your audience doesn't buy from brands. They buy from people they trust.",
+    attribution: "— The principle behind every partnership I take on",
+  },
+
+  contentPillars: [
+    {
+      icon: "🏠",
+      title: "Family Leadership",
+      text: "Present fatherhood, marriage growth, and building a legacy. Real moments that resonate with dads who want to be better.",
+      topics: ["Fatherhood", "Marriage", "Legacy", "Home Life"],
+    },
+    {
+      icon: "🏋️",
+      title: "Fitness & Performance",
+      text: "HYROX training, CrossFit, running splits, and recovery protocols. Performance as identity, not just aesthetics.",
+      topics: ["HYROX", "CrossFit", "Recovery", "Longevity"],
+    },
+    {
+      icon: "🥗",
+      title: "Wellness & Nutrition",
+      text: "Metabolic health, protein strategies, gut health, and sustainable daily habits. Progress over perfection.",
+      topics: ["Nutrition", "Gut Health", "Supplements", "Habits"],
+    },
+    {
+      icon: "📈",
+      title: "Business & Wealth",
+      text: "Entrepreneurship, personal branding, investing, and building multiple income streams alongside family.",
+      topics: ["Entrepreneurship", "Investing", "Arbonne", "Systems"],
+    },
+    {
+      icon: "💪",
+      title: "Modern Masculinity",
+      text: "Discipline without rigidity. Emotional strength. Physical vitality. Leading at home before leading anywhere else.",
+      topics: ["Discipline", "Strength", "Presence", "Mindset"],
+    },
+    {
+      icon: "📸",
+      title: "Lifestyle & Recovery",
+      text: "Daily routines, cold plunge sessions, sauna protocols, Boulder hikes, and backyard workouts with the kids.",
+      topics: ["Routines", "Cold Plunge", "Sauna", "Outdoor"],
+    },
+  ],
+
+  audience: {
+    age: [
+      { range: "25–34", pct: 38 },
+      { range: "35–44", pct: 32 },
+      { range: "18–24", pct: 15 },
+      { range: "45–54", pct: 12 },
+      { range: "55+", pct: 3 },
+    ],
+    gender: [
+      { label: "Male", pct: 62 },
+      { label: "Female", pct: 38 },
+    ],
+    locations: [
+      { place: "United States", pct: "78%" },
+      { place: "Canada", pct: "8%" },
+      { place: "United Kingdom", pct: "5%" },
+      { place: "Australia", pct: "4%" },
+      { place: "Other", pct: "5%" },
+    ],
+    interests: [
+      "Health & Fitness",
+      "Entrepreneurship",
+      "Family & Parenting",
+      "Nutrition & Supplements",
+      "Personal Development",
+      "Outdoor & Lifestyle",
+      "Investing & Finance",
+      "Recovery & Longevity",
+    ],
+  },
+
+  portfolio: [
+    { label: "Wellness Product Feature", type: "UGC", brand: "Supplement Brand" },
+    { label: "Training Equipment Review", type: "Reel", brand: "Fitness Equipment" },
+    { label: "Recovery Routine Integration", type: "UGC", brand: "Recovery Tech" },
+    { label: "Family Lifestyle Content", type: "Story", brand: "Family & Home" },
+    { label: "Nutrition Brand Unboxing", type: "UGC", brand: "Nutrition Brand" },
+    { label: "Morning Routine Feature", type: "Reel", brand: "Lifestyle & Wellness" },
+  ],
+
+  brandCategories: [
+    "Wellness",
+    "Fitness Equipment",
+    "Recovery & Longevity",
+    "Nutrition & Supplements",
+    "Lifestyle & Home",
+    "Fatherhood & Family",
+    "Outdoor & Adventure",
+    "Athleisure & Apparel",
+    "Financial Services",
+    "Performance Tech",
+  ],
+
+  testimonials: [
+    {
+      text: "Working with Wade was effortless. The content felt genuinely native to his audience, and we saw a 3x return on engagement compared to traditional influencer placements.",
+      author: "Marketing Director",
+      role: "Wellness Brand Partner",
+    },
+    {
+      text: "Wade's audience trust is the real deal. Our product launch through his platform exceeded every KPI we set. He's become our go-to creator in the wellness and fatherhood space.",
+      author: "Brand Manager",
+      role: "Fitness & Recovery Company",
+    },
+    {
+      text: "What sets Wade apart is the authenticity. His content doesn't feel like an ad — it feels like a trusted friend sharing something he genuinely uses. That's rare and incredibly valuable.",
+      author: "VP of Partnerships",
+      role: "Nutrition & Supplement Brand",
+    },
+  ],
+
+  services: [
+    {
+      title: "UGC Content Creation",
+      text: "Custom short-form video crafted for your brand's ad campaigns or organic channels. Hook-driven storytelling that feels native and converts.",
+      features: [
+        "1 / 3 / 5 video bundles",
+        "Hook + story structure",
+        "Full usage rights available",
+        "Fast turnaround options",
+      ],
+    },
+    {
+      title: "Organic Social Integration",
+      text: "Authentic in-feed content featuring your brand, naturally woven into my daily routines — reaching 95K+ engaged followers who trust my recommendations.",
+      features: [
+        "Instagram Reels & Stories",
+        "Authentic lifestyle integration",
+        "Story sequences with CTA",
+        "Giveaway collaborations",
+      ],
+    },
+    {
+      title: "Brand Ambassadorship",
+      text: "Long-term partnerships for brands that align deeply with my values and audience. Ongoing content, consistent presence, genuine advocacy.",
+      features: [
+        "Multi-month commitments",
+        "Consistent brand presence",
+        "Deeper audience trust",
+        "Exclusive category alignment",
+      ],
+    },
+    {
+      title: "Campaign Collaboration",
+      text: "Full-scale campaign support — from concept to multi-format delivery. Strategy-driven content designed to hit your KPIs and move the needle.",
+      features: [
+        "Concept development",
+        "Multi-format content",
+        "Cross-platform delivery",
+        "Performance insights",
+      ],
+    },
+  ],
+
+  process: [
+    {
+      title: "Discovery",
+      text: "Share your brand, goals, and vision. I'll review fit and respond within 48 hours.",
+    },
+    {
+      title: "Alignment",
+      text: "We align on messaging, deliverables, and timeline for authentic audience resonance.",
+    },
+    {
+      title: "Creation",
+      text: "Content rooted in real life. No scripts — genuine storytelling that moves people to action.",
+    },
+    {
+      title: "Delivery",
+      text: "Assets delivered on time, formatted for your platforms, ready to perform and convert.",
+    },
+  ],
+
+  footer: {
+    disclaimer:
+      "Independent wellness creator and entrepreneur. Content partnerships disclosed per FTC guidelines. Results and engagement vary.",
+  },
 };
 
-function cx(...classes: Array<string | false | undefined>) {
-  return classes.filter(Boolean).join(" ");
-}
-
-function Pill({ children }: { children: React.ReactNode }) {
+/* ── SVG Icons ── */
+function PlayIcon() {
   return (
-    <span
-      style={{
-        display: "inline-flex",
-        alignItems: "center",
-        borderRadius: 999,
-        border: "1px solid #e4e4e7",
-        background: "#fff",
-        padding: "6px 12px",
-        fontSize: 13,
-        color: "#3f3f46",
-        boxShadow: "0 1px 0 rgba(0,0,0,0.04)"
-      }}
-    >
-      {children}
-    </span>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <path d="M8 5.14v13.72a1 1 0 001.5.86l11.24-6.86a1 1 0 000-1.72L9.5 4.28A1 1 0 008 5.14z" fill="currentColor" />
+    </svg>
   );
 }
 
-function Card({
-  title,
-  body,
-  bullets
-}: {
-  title: string;
-  body: string;
-  bullets: string[];
-}) {
+function CheckIcon() {
   return (
-    <div
-      style={{
-        borderRadius: 18,
-        border: "1px solid #e4e4e7",
-        background: "#fff",
-        padding: 20,
-        boxShadow: "0 6px 18px rgba(0,0,0,0.04)"
-      }}
-    >
-      <div style={{ fontWeight: 700, fontSize: 16 }}>{title}</div>
-      <div style={{ marginTop: 8, color: "#52525b", lineHeight: 1.6 }}>{body}</div>
-      <ul style={{ marginTop: 14, paddingLeft: 16, color: "#3f3f46", lineHeight: 1.8, fontSize: 13 }}>
-        {bullets.map((b) => (
-          <li key={b}>{b}</li>
-        ))}
-      </ul>
-    </div>
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="20 6 9 17 4 12" />
+    </svg>
   );
 }
 
-function SectionHeader({
-  eyebrow,
-  title,
-  subtitle
-}: {
-  eyebrow: string;
-  title: string;
-  subtitle: string;
-}) {
+function InstagramIcon({ size = 18 }: { size?: number }) {
   return (
-    <div style={{ textAlign: "center", maxWidth: 860, margin: "0 auto" }}>
-      <div style={{ fontSize: 12, fontWeight: 800, letterSpacing: 0.8, color: "#52525b" }}>
-        {eyebrow}
-      </div>
-      <div style={{ marginTop: 10, fontSize: 34, fontWeight: 800, letterSpacing: -0.6 }}>
-        {title}
-      </div>
-      <div style={{ marginTop: 12, fontSize: 16, color: "#52525b", lineHeight: 1.7 }}>{subtitle}</div>
-    </div>
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+    </svg>
   );
 }
 
+function MailIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="4" width="20" height="16" rx="2" />
+      <path d="M22 7l-10 6L2 7" />
+    </svg>
+  );
+}
+
+function ArrowIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="5" y1="12" x2="19" y2="12" />
+      <polyline points="12 5 19 12 12 19" />
+    </svg>
+  );
+}
+
+function ChevronDown() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="6 9 12 15 18 9" />
+    </svg>
+  );
+}
+
+function CameraIcon() {
+  return (
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.25">
+      <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z" />
+      <circle cx="12" cy="13" r="4" />
+    </svg>
+  );
+}
+
+/* ── Page ── */
 export default function Page() {
   return (
-    <div style={{ minHeight: "100vh", background: "#fafafa", color: "#18181b" }}>
-      {/* Header */}
-      <div
-        style={{
-          position: "sticky",
-          top: 0,
-          zIndex: 50,
-          backdropFilter: "blur(10px)",
-          background: "rgba(255,255,255,0.8)",
-          borderBottom: "1px solid #e4e4e7"
-        }}
-      >
-        <div
-          style={{
-            maxWidth: 1120,
-            margin: "0 auto",
-            padding: "12px 16px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: 16
-          }}
-        >
-          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-            <div style={{ width: 36, height: 36, borderRadius: 12, background: "#18181b" }} />
-            <div style={{ lineHeight: 1.1 }}>
-              <div style={{ fontWeight: 800 }}>{content.brandName}</div>
-              <div style={{ fontSize: 12, color: "#52525b" }}>{content.handle}</div>
+    <div>
+      {/* ════════ NAVIGATION ════════ */}
+      <nav className="nav">
+        <div className="container nav-inner">
+          <a href="#" className="nav-brand">
+            <div className="nav-logo">WC</div>
+            <div>
+              <div className="nav-brand-name">Wade Critides</div>
+              <div className="nav-brand-handle">{SITE.handle}</div>
             </div>
+          </a>
+
+          <div className="nav-links">
+            <a href="#about" className="nav-link">About</a>
+            <a href="#content" className="nav-link">Content</a>
+            <a href="#audience" className="nav-link">Audience</a>
+            <a href="#portfolio" className="nav-link">Work</a>
+            <a href="#services" className="nav-link">Services</a>
+            <a href="#contact" className="nav-cta-btn">
+              Partner With Me <ArrowIcon />
+            </a>
           </div>
 
-          <div style={{ display: "flex", alignItems: "center", gap: 18, fontSize: 13 }}>
-            <a href="#brands" style={{ color: "#3f3f46", textDecoration: "none" }}>
-              Brands
-            </a>
-            <a href="#coaching" style={{ color: "#3f3f46", textDecoration: "none" }}>
-              Coaching
-            </a>
-            <a href="#business" style={{ color: "#3f3f46", textDecoration: "none" }}>
-              Mentorship
-            </a>
-            <a
-              href="#contact"
-              style={{
-                background: "#18181b",
-                color: "#fff",
-                textDecoration: "none",
-                padding: "10px 14px",
-                borderRadius: 14,
-                fontWeight: 800
-              }}
-            >
-              Contact
-            </a>
-          </div>
+          <MobileNav />
         </div>
-      </div>
+      </nav>
 
-      {/* Hero */}
-      <div style={{ maxWidth: 1120, margin: "0 auto", padding: "48px 16px 40px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1.2fr 0.8fr", gap: 26, alignItems: "center" }}>
-          <div>
-            <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-              <Pill>High-vibe wellness</Pill>
-              <Pill>Fit dad of 3</Pill>
-              <Pill>Creator + mentor</Pill>
-            </div>
-
-            <div style={{ marginTop: 18, fontSize: 46, fontWeight: 900, letterSpacing: -1.2, lineHeight: 1.05 }}>
-              {content.headline}
-            </div>
-            <div style={{ marginTop: 14, fontSize: 18, color: "#52525b", lineHeight: 1.75 }}>
-              {content.subhead}
-            </div>
-
-            <div style={{ marginTop: 18, display: "flex", gap: 10, flexWrap: "wrap" }}>
-              <a
-                href={content.primaryCtas[0].href}
-                style={{
-                  background: "#18181b",
-                  color: "#fff",
-                  textDecoration: "none",
-                  padding: "12px 16px",
-                  borderRadius: 16,
-                  fontWeight: 900
-                }}
-              >
-                {content.primaryCtas[0].label}
-              </a>
-              <a
-                href={content.primaryCtas[1].href}
-                style={{
-                  background: "#fff",
-                  color: "#18181b",
-                  textDecoration: "none",
-                  padding: "12px 16px",
-                  borderRadius: 16,
-                  border: "1px solid #e4e4e7",
-                  fontWeight: 900
-                }}
-              >
-                {content.primaryCtas[1].label}
-              </a>
-              <a
-                href={content.primaryCtas[2].href}
-                style={{
-                  background: "#fff",
-                  color: "#18181b",
-                  textDecoration: "none",
-                  padding: "12px 16px",
-                  borderRadius: 16,
-                  border: "1px solid #e4e4e7",
-                  fontWeight: 900
-                }}
-              >
-                {content.primaryCtas[2].label}
-              </a>
-            </div>
-
-            <div style={{ marginTop: 22, display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 10 }}>
-              {content.quickProof.map((p) => (
-                <div
-                  key={p.label}
-                  style={{
-                    border: "1px solid #e4e4e7",
-                    borderRadius: 18,
-                    background: "#fff",
-                    padding: 14,
-                    boxShadow: "0 6px 18px rgba(0,0,0,0.04)"
-                  }}
-                >
-                  <div style={{ fontSize: 11, fontWeight: 800, color: "#52525b" }}>{p.label}</div>
-                  <div style={{ marginTop: 6, fontSize: 20, fontWeight: 900 }}>{p.value}</div>
-                  <div style={{ marginTop: 4, fontSize: 11, color: "#52525b" }}>{p.note}</div>
-                </div>
+      {/* ════════ HERO ════════ */}
+      <section className="hero">
+        <div className="container hero-inner">
+          <div className="hero-content">
+            <div className="hero-eyebrow animate-in">
+              {SITE.hero.eyebrow.map((word, i) => (
+                <span key={word}>
+                  {i > 0 && <span className="hero-dot" />}
+                  {word}
+                </span>
               ))}
             </div>
-          </div>
 
-          <div
-            style={{
-              borderRadius: 24,
-              border: "1px solid #e4e4e7",
-              background: "#fff",
-              padding: 18,
-              boxShadow: "0 10px 30px rgba(0,0,0,0.06)"
-            }}
-          >
-            <div style={{ aspectRatio: "4/5", background: "#f4f4f5", borderRadius: 18 }} />
-            <div style={{ marginTop: 10, fontSize: 12, color: "#52525b", lineHeight: 1.6 }}>
-              Swap this placeholder for a strong portrait. Add <code>/public/hero.jpg</code> later.
+            <h1 className="hero-name animate-in delay-1">{SITE.name}</h1>
+            <p className="hero-tagline animate-in delay-2">{SITE.tagline}</p>
+
+            {/* Full description on desktop, short on mobile */}
+            <p className="hero-description hero-desc-full animate-in delay-3">
+              {SITE.hero.description}
+            </p>
+            <p className="hero-description hero-desc-short animate-in delay-3">
+              {SITE.hero.descriptionShort}
+            </p>
+
+            <div className="hero-ctas animate-in delay-4">
+              <a href="#contact" className="btn btn-primary btn-lg hero-cta-partner">
+                Partner With Me <ArrowIcon />
+              </a>
+              <a href="#portfolio" className="btn btn-outline-light btn-lg hero-cta-work">
+                See My Work
+              </a>
             </div>
-          </div>
-        </div>
-      </div>
 
-      {/* Brands */}
-      <div id="brands" style={{ background: "#fff", borderTop: "1px solid #e4e4e7" }}>
-        <div style={{ maxWidth: 1120, margin: "0 auto", padding: "56px 16px" }}>
-          <SectionHeader
-            eyebrow="FOR BRANDS"
-            title={content.sections.brands.title}
-            subtitle={content.sections.brands.subtitle}
-          />
-
-          <div style={{ marginTop: 26, display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 14 }}>
-            {content.sections.brands.offers.map((o) => (
-              <Card key={o.title} title={o.title} body={o.body} bullets={o.bullets} />
-            ))}
-          </div>
-
-          <div
-            style={{
-              marginTop: 22,
-              borderRadius: 24,
-              border: "1px solid #e4e4e7",
-              background: "#fafafa",
-              padding: 20,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              gap: 16,
-              flexWrap: "wrap"
-            }}
-          >
-            <div>
-              <div style={{ fontWeight: 900, fontSize: 18 }}>Request my media kit</div>
-              <div style={{ marginTop: 6, color: "#52525b", lineHeight: 1.6 }}>
-                Include deliverables, timeline, and budget range.
+            <div className="hero-meta animate-in delay-5">
+              <div className="hero-booking-badge">
+                <span className="hero-booking-dot" />
+                Now Booking Q2 2026 Partnerships
               </div>
-            </div>
-            <a
-              href={`mailto:${content.brandEmail}?subject=Brand%20Collaboration%20Inquiry&body=Brand:%0AWebsite:%0AGoals:%0ATimeline:%0ABudget%20range:%0A`}
-              style={{
-                background: "#18181b",
-                color: "#fff",
-                textDecoration: "none",
-                padding: "12px 16px",
-                borderRadius: 16,
-                fontWeight: 900
-              }}
-            >
-              Email inquiry
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* Coaching */}
-      <div id="coaching" style={{ background: "#fafafa", borderTop: "1px solid #e4e4e7" }}>
-        <div style={{ maxWidth: 1120, margin: "0 auto", padding: "56px 16px" }}>
-          <SectionHeader
-            eyebrow="FOR PEOPLE"
-            title={content.sections.coaching.title}
-            subtitle={content.sections.coaching.subtitle}
-          />
-          <div style={{ marginTop: 26, display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 14 }}>
-            {content.sections.coaching.cards.map((c) => (
-              <Card key={c.title} title={c.title} body={c.body} bullets={c.bullets} />
-            ))}
-          </div>
-
-          <div style={{ marginTop: 22, textAlign: "center" }}>
-            <a
-              href="#contact"
-              style={{
-                background: "#18181b",
-                color: "#fff",
-                textDecoration: "none",
-                padding: "12px 18px",
-                borderRadius: 16,
-                fontWeight: 900,
-                display: "inline-block"
-              }}
-            >
-              Apply for coaching
-            </a>
-            <div style={{ marginTop: 10, fontSize: 12, color: "#52525b" }}>
-              Application-based so it’s the right fit. No pressure, just clarity.
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Business */}
-      <div id="business" style={{ background: "#fff", borderTop: "1px solid #e4e4e7" }}>
-        <div style={{ maxWidth: 1120, margin: "0 auto", padding: "56px 16px" }}>
-          <SectionHeader
-            eyebrow="FOR BUILDERS"
-            title={content.sections.business.title}
-            subtitle={content.sections.business.subtitle}
-          />
-
-          <div style={{ marginTop: 26, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
-            <div
-              style={{
-                borderRadius: 24,
-                border: "1px solid #e4e4e7",
-                background: "#fafafa",
-                padding: 20
-              }}
-            >
-              <div style={{ fontWeight: 900, fontSize: 18 }}>What you’ll get</div>
-              <ul style={{ marginTop: 12, paddingLeft: 16, color: "#3f3f46", lineHeight: 1.9, fontSize: 13 }}>
-                {content.sections.business.leftBullets.map((b) => (
-                  <li key={b}>{b}</li>
-                ))}
-              </ul>
-              <div style={{ marginTop: 14 }}>
-                <a
-                  href="#contact"
-                  style={{
-                    background: "#18181b",
-                    color: "#fff",
-                    textDecoration: "none",
-                    padding: "12px 16px",
-                    borderRadius: 16,
-                    fontWeight: 900,
-                    display: "inline-block"
-                  }}
-                >
-                  Book a discovery chat
-                </a>
-              </div>
-            </div>
-
-            <div
-              style={{
-                borderRadius: 24,
-                border: "1px solid #e4e4e7",
-                background: "#fff",
-                padding: 20,
-                boxShadow: "0 10px 30px rgba(0,0,0,0.06)"
-              }}
-            >
-              <div style={{ fontWeight: 900, fontSize: 18 }}>Who it’s for (and who it’s not)</div>
-              <div style={{ marginTop: 12, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
-                <div style={{ borderRadius: 18, border: "1px solid #e4e4e7", background: "#fafafa", padding: 14 }}>
-                  <div style={{ fontWeight: 800, fontSize: 13 }}>Great fit if you:</div>
-                  <ul style={{ marginTop: 8, paddingLeft: 16, fontSize: 13, color: "#3f3f46", lineHeight: 1.8 }}>
-                    {content.sections.business.fit.good.map((b) => (
-                      <li key={b}>{b}</li>
-                    ))}
-                  </ul>
-                </div>
-                <div style={{ borderRadius: 18, border: "1px solid #e4e4e7", background: "#fafafa", padding: 14 }}>
-                  <div style={{ fontWeight: 800, fontSize: 13 }}>Not a fit if you:</div>
-                  <ul style={{ marginTop: 8, paddingLeft: 16, fontSize: 13, color: "#3f3f46", lineHeight: 1.8 }}>
-                    {content.sections.business.fit.bad.map((b) => (
-                      <li key={b}>{b}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              <div style={{ marginTop: 12, fontSize: 12, color: "#52525b", lineHeight: 1.6 }}>
-                This site avoids income or health claims. Outcomes vary and depend on consistency, effort, and personal circumstances.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* FAQ + Contact */}
-      <div style={{ background: "#fafafa", borderTop: "1px solid #e4e4e7" }}>
-        <div style={{ maxWidth: 1120, margin: "0 auto", padding: "56px 16px" }}>
-          <SectionHeader
-            eyebrow="FAQ"
-            title="Quick answers"
-            subtitle="If you’re not sure where to start, reach out and choose “Not sure.”"
-          />
-
-          <div style={{ marginTop: 26, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
-            {content.faq.map((f) => (
-              <div
-                key={f.q}
-                style={{
-                  borderRadius: 18,
-                  border: "1px solid #e4e4e7",
-                  background: "#fff",
-                  padding: 18,
-                  boxShadow: "0 6px 18px rgba(0,0,0,0.04)"
-                }}
+              <a
+                href={SITE.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hero-ig-link"
               >
-                <div style={{ fontWeight: 900 }}>{f.q}</div>
-                <div style={{ marginTop: 8, color: "#52525b", lineHeight: 1.7 }}>{f.a}</div>
+                <InstagramIcon size={16} />
+                {SITE.handle}
+              </a>
+            </div>
+          </div>
+
+          {/* Scroll indicator */}
+          <div className="hero-scroll-indicator animate-in delay-5">
+            <span>Explore</span>
+            <div className="hero-scroll-arrow"><ChevronDown /></div>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════ METRICS BAR ════════ */}
+      <div className="metrics-bar">
+        <div className="container metrics-inner">
+          {SITE.metrics.map((m) => (
+            <div key={m.label} className="metric-item">
+              <div className="metric-value">{m.value}</div>
+              <div className="metric-label">{m.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ════════ WHY WADE ════════ */}
+      <section className="section section-dark">
+        <div className="container">
+          <Reveal>
+            <div className="section-header">
+              <div className="section-eyebrow">Why Brands Choose Wade</div>
+              <h2 className="section-title">Real Trust. Real Results.</h2>
+              <p className="section-subtitle">
+                In a world of sponsored posts that feel forced, my audience engages because they trust me.
+                That trust translates directly into results for your brand.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="why-grid">
+            {SITE.whyWade.map((item, i) => (
+              <Reveal key={item.title} delay={i * 100}>
+                <div className="why-card">
+                  <div className="why-icon">{item.icon}</div>
+                  <div>
+                    <div className="why-card-title">{item.title}</div>
+                    <div className="why-card-text">{item.text}</div>
+                    <div className="why-card-stat">{item.stat}</div>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ════════ ABOUT ════════ */}
+      <section id="about" className="section section-light">
+        <div className="container">
+          <div className="about-grid">
+            <Reveal>
+              <div className="about-monogram">
+                {/* 📸 Replace entire div with: <img src="/about.jpg" alt="Wade Critides" style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'var(--r-xl)'}} /> */}
+                <div className="about-monogram-letters">WC</div>
+                <div className="about-monogram-sub">Wade Critides</div>
               </div>
+            </Reveal>
+
+            <Reveal delay={150}>
+              <div>
+                <div className="about-eyebrow">The Person Behind The Content</div>
+                <h2 className="about-heading">
+                  Strength starts at home.<br />
+                  Everything else follows.
+                </h2>
+
+                {SITE.about.paragraphs.map((p, i) => (
+                  <p key={i} className="about-text">{p}</p>
+                ))}
+
+                <div className="about-pillars">
+                  {SITE.about.pillars.map((pillar) => (
+                    <span key={pillar} className="about-pillar-tag">{pillar}</span>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════ MANIFESTO QUOTE ════════ */}
+      <section className="manifesto">
+        <Reveal>
+          <div className="manifesto-inner">
+            <div className="manifesto-mark">&ldquo;</div>
+            <p className="manifesto-text">{SITE.manifesto.quote}</p>
+            <p className="manifesto-attribution">{SITE.manifesto.attribution}</p>
+          </div>
+        </Reveal>
+      </section>
+
+      {/* ════════ CONTENT PILLARS ════════ */}
+      <section id="content" className="section section-cream">
+        <div className="container">
+          <Reveal>
+            <div className="section-header">
+              <div className="section-eyebrow">What I Create</div>
+              <h2 className="section-title">Content That Connects</h2>
+              <p className="section-subtitle">
+                Every piece of content I create lives at the intersection of real life and real value.
+                These are the pillars that drive my audience's trust — and your brand's opportunity.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="pillars-grid">
+            {SITE.contentPillars.map((pillar, i) => (
+              <Reveal key={pillar.title} delay={i * 80}>
+                <div className="pillar-card">
+                  <div className="pillar-icon">{pillar.icon}</div>
+                  <div className="pillar-card-title">{pillar.title}</div>
+                  <div className="pillar-card-text">{pillar.text}</div>
+                  <div className="pillar-topics">
+                    {pillar.topics.map((t) => (
+                      <span key={t} className="pillar-topic">{t}</span>
+                    ))}
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ════════ AUDIENCE INSIGHTS ════════ */}
+      <section id="audience" className="section section-light">
+        <div className="container">
+          <Reveal>
+            <div className="section-header">
+              <div className="section-eyebrow">Audience Insights</div>
+              <h2 className="section-title">Who You're Reaching</h2>
+              <p className="section-subtitle">
+                My audience is primarily men 28–44 who are married, have kids, and are building something meaningful.
+                They care about fitness, financial growth, and being present at home. They buy what I recommend
+                because they trust how I live.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="audience-grid">
+            <Reveal>
+              <div className="audience-card">
+                <div className="audience-card-title">Age Distribution</div>
+                <div className="audience-bar-group">
+                  {SITE.audience.age.map((a) => (
+                    <div key={a.range} className="audience-bar-row">
+                      <div className="audience-bar-label">{a.range}</div>
+                      <div className="audience-bar-track">
+                        <div className="audience-bar-fill" style={{ width: `${a.pct}%` }} />
+                      </div>
+                      <div className="audience-bar-value">{a.pct}%</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={100}>
+              <div className="audience-card">
+                <div className="audience-card-title">Gender Split</div>
+                <div className="audience-bar-group">
+                  {SITE.audience.gender.map((g) => (
+                    <div key={g.label} className="audience-bar-row">
+                      <div className="audience-bar-label">{g.label}</div>
+                      <div className="audience-bar-track">
+                        <div className="audience-bar-fill" style={{ width: `${g.pct}%` }} />
+                      </div>
+                      <div className="audience-bar-value">{g.pct}%</div>
+                    </div>
+                  ))}
+                </div>
+                <div className="audience-card-title" style={{ marginTop: 32 }}>Top Locations</div>
+                {SITE.audience.locations.map((loc) => (
+                  <div key={loc.place} className="audience-row">
+                    <div className="audience-row-label">{loc.place}</div>
+                    <div className="audience-row-value">{loc.pct}</div>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+
+            <Reveal>
+              <div className="audience-card audience-full-width">
+                <div className="audience-card-title">Audience Interests &amp; Affinities</div>
+                <div className="audience-interests">
+                  {SITE.audience.interests.map((interest) => (
+                    <span key={interest} className="audience-interest">{interest}</span>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════ PORTFOLIO ════════ */}
+      <section id="portfolio" className="section section-dark">
+        <div className="container">
+          <Reveal>
+            <div className="section-header">
+              <div className="section-eyebrow">Portfolio</div>
+              <h2 className="section-title">Content In Action</h2>
+              <p className="section-subtitle">
+                From hook-driven UGC to organic lifestyle integrations — here's a sample of the content
+                I create for brands. Every piece is authentic, performance-minded, and built to convert.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="portfolio-grid">
+            {SITE.portfolio.map((item, i) => (
+              <Reveal key={item.label} delay={i * 80}>
+                <a
+                  href={SITE.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="portfolio-item"
+                >
+                  <span className="portfolio-type-badge">{item.type}</span>
+                  <div className="portfolio-play"><PlayIcon /></div>
+                  <div className="portfolio-label">{item.label}</div>
+                  <div className="portfolio-brand">{item.brand}</div>
+                </a>
+              </Reveal>
             ))}
           </div>
 
-          <div id="contact" style={{ marginTop: 28 }}>
-            <SectionHeader
-              eyebrow="CONTACT"
-              title="Reach out"
-              subtitle="Pick your path and send a short note. I’ll reply with next steps."
-            />
+          <Reveal>
+            <div className="brand-categories">
+              {SITE.brandCategories.map((cat) => (
+                <span key={cat} className="brand-category">{cat}</span>
+              ))}
+            </div>
 
-            <div
-              style={{
-                maxWidth: 820,
-                margin: "26px auto 0",
-                borderRadius: 24,
-                border: "1px solid #e4e4e7",
-                background: "#fff",
-                padding: 20,
-                boxShadow: "0 10px 30px rgba(0,0,0,0.06)"
-              }}
+            <div style={{ textAlign: "center", marginTop: 48 }}>
+              <a
+                href={SITE.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-outline-light btn-lg"
+              >
+                <InstagramIcon size={18} />
+                See More on Instagram
+              </a>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ════════ TESTIMONIALS ════════ */}
+      <section className="section section-cream">
+        <div className="container">
+          <Reveal>
+            <div className="section-header">
+              <div className="section-eyebrow">Partner Feedback</div>
+              <h2 className="section-title">What Brand Partners Say</h2>
+              <p className="section-subtitle">
+                The best partnerships are built on trust, communication, and results.
+                Here's what brands experience when they work with me.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="testimonials-grid">
+            {SITE.testimonials.map((t, i) => (
+              <Reveal key={i} delay={i * 100}>
+                <div className="testimonial-card">
+                  <div className="testimonial-stars">★★★★★</div>
+                  <p className="testimonial-text">&ldquo;{t.text}&rdquo;</p>
+                  <div className="testimonial-divider" />
+                  <div className="testimonial-author">{t.author}</div>
+                  <div className="testimonial-role">{t.role}</div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+          <p className="testimonials-note">
+            Testimonials represent real partner experiences. Names withheld for confidentiality.
+          </p>
+        </div>
+      </section>
+
+      {/* ════════ INSTAGRAM BANNER ════════ */}
+      <section className="section section-dark" style={{ padding: 0 }}>
+        <div className="ig-banner">
+          <Reveal>
+            <a
+              href={SITE.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ig-handle-link"
             >
+              <InstagramIcon size={40} /> {SITE.handle}
+            </a>
+            <div className="ig-subtitle">
+              Follow for daily content on fitness, family leadership, and building with intention
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ════════ SERVICES ════════ */}
+      <section id="services" className="section section-light">
+        <div className="container">
+          <Reveal>
+            <div className="section-header">
+              <div className="section-eyebrow">Services</div>
+              <h2 className="section-title">Ways To Work Together</h2>
+              <p className="section-subtitle">
+                Flexible partnership structures built around your goals.
+                Every collaboration starts with alignment — I only work with brands I genuinely believe in.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="services-grid">
+            {SITE.services.map((service, i) => (
+              <Reveal key={service.title} delay={i * 80}>
+                <div className="service-card">
+                  <div className="service-number">0{i + 1}</div>
+                  <div className="service-card-title">{service.title}</div>
+                  <div className="service-card-text">{service.text}</div>
+                  <div className="service-features">
+                    {service.features.map((feat) => (
+                      <div key={feat} className="service-feature">
+                        <span className="service-check"><CheckIcon /></span>
+                        {feat}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal>
+            <div style={{ textAlign: "center", marginTop: 48 }}>
+              <a href="#contact" className="btn btn-primary btn-lg">
+                Start a Conversation <ArrowIcon />
+              </a>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ════════ PROCESS ════════ */}
+      <section className="section section-cream">
+        <div className="container">
+          <Reveal>
+            <div className="section-header">
+              <div className="section-eyebrow">The Process</div>
+              <h2 className="section-title">Simple. Authentic. Effective.</h2>
+              <p className="section-subtitle">
+                Working with me is straightforward. I keep things professional, responsive,
+                and focused on delivering content that performs.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="process-grid">
+            {SITE.process.map((step, i) => (
+              <Reveal key={step.title} delay={i * 100}>
+                <div className="process-step">
+                  <div className="process-number">{i + 1}</div>
+                  <div className="process-step-title">{step.title}</div>
+                  <div className="process-step-text">{step.text}</div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ════════ CONTACT ════════ */}
+      <section id="contact" className="section section-light">
+        <div className="container">
+          <div className="contact-grid">
+            <Reveal>
+              <div>
+                <h2 className="contact-heading">
+                  Let's Create Something<br />Authentic Together
+                </h2>
+                <p className="contact-text">
+                  Whether you're exploring a one-time UGC project or a long-term brand ambassadorship,
+                  I'd love to hear about your vision. Share your goals, timeline, and budget range
+                  — I respond to every inquiry within 48 hours.
+                </p>
+
+                <div className="contact-info-item">
+                  <div className="contact-icon"><MailIcon /></div>
+                  <div>
+                    <div className="contact-info-label">Brand Partnerships</div>
+                    <div className="contact-info-value">{SITE.email}</div>
+                  </div>
+                </div>
+
+                <div className="contact-info-item">
+                  <div className="contact-icon"><InstagramIcon /></div>
+                  <div>
+                    <div className="contact-info-label">Instagram</div>
+                    <a
+                      href={SITE.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="contact-info-value"
+                      style={{ display: "block" }}
+                    >
+                      {SITE.handle}
+                    </a>
+                  </div>
+                </div>
+
+                <div className="contact-info-item" style={{ border: "none" }}>
+                  <div className="contact-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="contact-info-label">Response Time</div>
+                    <div className="contact-info-value">Within 48 hours</div>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={150}>
               <form
-                action={`mailto:${content.coachingEmail}`}
+                action={`mailto:${SITE.email}?subject=Brand%20Partnership%20Inquiry`}
                 method="post"
                 encType="text/plain"
-                style={{ display: "grid", gap: 12 }}
+                className="contact-form"
               >
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-                  <div>
-                    <div style={{ fontSize: 12, fontWeight: 800, color: "#52525b" }}>Name</div>
-                    <input
-                      name="name"
-                      required
-                      placeholder="Your name"
-                      style={{
-                        marginTop: 6,
-                        width: "100%",
-                        padding: "12px 12px",
-                        borderRadius: 14,
-                        border: "1px solid #e4e4e7",
-                        outline: "none"
-                      }}
-                    />
+                <div className="form-row">
+                  <div className="form-group">
+                    <label className="form-label">Your Name</label>
+                    <input name="name" required placeholder="Full name" className="form-input" />
                   </div>
-                  <div>
-                    <div style={{ fontSize: 12, fontWeight: 800, color: "#52525b" }}>Email</div>
-                    <input
-                      name="email"
-                      type="email"
-                      required
-                      placeholder="you@email.com"
-                      style={{
-                        marginTop: 6,
-                        width: "100%",
-                        padding: "12px 12px",
-                        borderRadius: 14,
-                        border: "1px solid #e4e4e7",
-                        outline: "none"
-                      }}
-                    />
+                  <div className="form-group">
+                    <label className="form-label">Email</label>
+                    <input name="email" type="email" required placeholder="you@brand.com" className="form-input" />
                   </div>
                 </div>
 
-                <div>
-                  <div style={{ fontSize: 12, fontWeight: 800, color: "#52525b" }}>I’m reaching out about</div>
-                  <select
-                    name="interest"
-                    defaultValue="Brands"
-                    style={{
-                      marginTop: 6,
-                      width: "100%",
-                      padding: "12px 12px",
-                      borderRadius: 14,
-                      border: "1px solid #e4e4e7",
-                      outline: "none",
-                      background: "#fff"
-                    }}
-                  >
-                    <option>Brands</option>
-                    <option>Coaching</option>
-                    <option>Business mentorship</option>
-                    <option>Not sure</option>
-                  </select>
+                <div className="form-row">
+                  <div className="form-group">
+                    <label className="form-label">Brand / Company</label>
+                    <input name="brand" placeholder="Your brand name" className="form-input" />
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label">Partnership Type</label>
+                    <select name="type" className="form-select" defaultValue="">
+                      <option value="" disabled>Select an option</option>
+                      <option>UGC Content Creation</option>
+                      <option>Organic Social Integration</option>
+                      <option>Brand Ambassadorship</option>
+                      <option>Campaign Collaboration</option>
+                      <option>Not sure yet</option>
+                    </select>
+                  </div>
                 </div>
 
-                <div>
-                  <div style={{ fontSize: 12, fontWeight: 800, color: "#52525b" }}>Message</div>
+                <div className="form-group">
+                  <label className="form-label">Tell Me About Your Project</label>
                   <textarea
                     name="message"
                     required
-                    placeholder="Share your goals, timeline, and what you’re looking for."
-                    style={{
-                      marginTop: 6,
-                      width: "100%",
-                      minHeight: 140,
-                      padding: "12px 12px",
-                      borderRadius: 14,
-                      border: "1px solid #e4e4e7",
-                      outline: "none",
-                      resize: "vertical"
-                    }}
+                    placeholder="Share your goals, timeline, deliverables, and budget range..."
+                    className="form-textarea"
                   />
                 </div>
 
-                <button
-                  type="submit"
-                  style={{
-                    background: "#18181b",
-                    color: "#fff",
-                    border: "none",
-                    padding: "12px 16px",
-                    borderRadius: 16,
-                    fontWeight: 900,
-                    cursor: "pointer"
-                  }}
-                >
-                  Send message
+                <button type="submit" className="btn btn-primary btn-full btn-lg">
+                  Send Partnership Inquiry <ArrowIcon />
                 </button>
 
-                <div style={{ fontSize: 11, color: "#71717a", lineHeight: 1.6 }}>
-                  {content.footerNote}
-                </div>
+                <p style={{ fontSize: 12, color: "var(--gray-400)", lineHeight: 1.6, textAlign: "center" }}>
+                  I respond to every inquiry. No spam — ever.
+                </p>
               </form>
-            </div>
+            </Reveal>
           </div>
         </div>
+      </section>
+
+      {/* ════════ FLOATING MOBILE CTA ════════ */}
+      <div className="floating-cta">
+        <a href="#contact" className="btn btn-primary">
+          Partner With Me <ArrowIcon />
+        </a>
       </div>
 
-      {/* Footer */}
-      <div style={{ borderTop: "1px solid #e4e4e7", background: "#fff" }}>
-        <div style={{ maxWidth: 1120, margin: "0 auto", padding: "20px 16px", fontSize: 12, color: "#71717a" }}>
-          © {new Date().getFullYear()} {content.brandName} • {content.footerNote}
+      {/* ════════ FOOTER ════════ */}
+      <footer className="footer">
+        <div className="container">
+          <div className="footer-inner">
+            <div className="footer-brand">Wade Critides</div>
+            <div className="footer-links">
+              <a href="#about" className="footer-link">About</a>
+              <a href="#audience" className="footer-link">Audience</a>
+              <a href="#portfolio" className="footer-link">Work</a>
+              <a href="#services" className="footer-link">Services</a>
+              <a href="#contact" className="footer-link">Contact</a>
+              <a href={SITE.instagram} target="_blank" rel="noopener noreferrer" className="footer-link">
+                Instagram
+              </a>
+            </div>
+          </div>
+          <div className="footer-bottom">
+            <div className="footer-disclaimer">{SITE.footer.disclaimer}</div>
+            <div>© {new Date().getFullYear()} Wade Critides. All rights reserved.</div>
+          </div>
         </div>
-      </div>
+      </footer>
     </div>
   );
 }
