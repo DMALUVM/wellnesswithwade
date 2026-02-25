@@ -375,20 +375,21 @@ export default function Page() {
               </a>
             </div>
 
-            <div className="hero-booking-badge animate-in delay-5">
-              <span className="hero-booking-dot" />
-              Now Booking Q2 2026 Partnerships
+            <div className="hero-meta animate-in delay-5">
+              <div className="hero-booking-badge">
+                <span className="hero-booking-dot" />
+                Now Booking Q2 2026 Partnerships
+              </div>
+              <a
+                href={SITE.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hero-ig-link"
+              >
+                <InstagramIcon size={16} />
+                {SITE.handle}
+              </a>
             </div>
-
-            <a
-              href={SITE.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hero-ig-link animate-in delay-5"
-            >
-              <InstagramIcon size={16} />
-              {SITE.handle}
-            </a>
           </div>
 
           {/* Scroll indicator */}
