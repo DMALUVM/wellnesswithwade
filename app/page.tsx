@@ -1,12 +1,13 @@
 /* ============================================================
    WELLNESS WITH WADE — Premium Brand Partnership Landing Page
-   v2: 11/10 conversion-optimized rebuild
+   v3: 11/10 — mobile-killer hero, scroll reveal, manifesto
 
    ✏️  Edit the SITE object below to update all content.
    📸  Place images in /public/ and reference them here.
    ============================================================ */
 
 import MobileNav from "./MobileNav";
+import Reveal from "./Reveal";
 
 const SITE = {
   name: "Wade Critides",
@@ -19,9 +20,10 @@ const SITE = {
     eyebrow: ["Content Creator", "UGC Specialist", "Brand Partner"],
     description:
       "I create authentic content that moves real people — rooted in family leadership, elite fitness, and intentional living. Brands partner with me because my audience doesn't just scroll past. They stop, engage, and buy what I recommend — because they trust how I live.",
+    descriptionShort:
+      "Authentic content that moves real people. My audience trusts how I live — and that trust converts for your brand.",
   },
 
-  /* ── Update with your real Instagram Insights ── */
   metrics: [
     { value: "95K+", label: "Followers" },
     { value: "4.2%", label: "Engagement Rate" },
@@ -65,6 +67,11 @@ const SITE = {
     ],
   },
 
+  manifesto: {
+    quote: "Your audience doesn't buy from brands. They buy from people they trust.",
+    attribution: "— The principle behind every partnership I take on",
+  },
+
   contentPillars: [
     {
       icon: "🏠",
@@ -104,7 +111,6 @@ const SITE = {
     },
   ],
 
-  /* ── Update with real Instagram Insights data ── */
   audience: {
     age: [
       { range: "25–34", pct: 38 },
@@ -158,7 +164,6 @@ const SITE = {
     "Performance Tech",
   ],
 
-  /* ── Replace with real testimonials from brand partners ── */
   testimonials: [
     {
       text: "Working with Wade was effortless. The content felt genuinely native to his audience, and we saw a 3x return on engagement compared to traditional influencer placements.",
@@ -290,6 +295,14 @@ function ArrowIcon() {
   );
 }
 
+function ChevronDown() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="6 9 12 15 18 9" />
+    </svg>
+  );
+}
+
 function CameraIcon() {
   return (
     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.25">
@@ -344,15 +357,27 @@ export default function Page() {
 
             <h1 className="hero-name animate-in delay-1">{SITE.name}</h1>
             <p className="hero-tagline animate-in delay-2">{SITE.tagline}</p>
-            <p className="hero-description animate-in delay-3">{SITE.hero.description}</p>
+
+            {/* Full description on desktop, short on mobile */}
+            <p className="hero-description hero-desc-full animate-in delay-3">
+              {SITE.hero.description}
+            </p>
+            <p className="hero-description hero-desc-short animate-in delay-3">
+              {SITE.hero.descriptionShort}
+            </p>
 
             <div className="hero-ctas animate-in delay-4">
-              <a href="#contact" className="btn btn-primary btn-lg">
+              <a href="#contact" className="btn btn-primary btn-lg hero-cta-partner">
                 Partner With Me <ArrowIcon />
               </a>
-              <a href="#portfolio" className="btn btn-outline-light btn-lg">
+              <a href="#portfolio" className="btn btn-outline-light btn-lg hero-cta-work">
                 See My Work
               </a>
+            </div>
+
+            <div className="hero-booking-badge animate-in delay-5">
+              <span className="hero-booking-dot" />
+              Now Booking Q2 2026 Partnerships
             </div>
 
             <a
@@ -362,26 +387,14 @@ export default function Page() {
               className="hero-ig-link animate-in delay-5"
             >
               <InstagramIcon size={16} />
-              {SITE.handle} — Follow the journey
+              {SITE.handle}
             </a>
           </div>
 
-          <div className="hero-visual animate-in delay-3">
-            <div className="hero-image-frame">
-              {/* 📸 Replace with: <img src="/hero.jpg" alt="Wade Critides" style={{width:'100%',height:'100%',objectFit:'cover'}} /> */}
-              <div className="hero-image-placeholder">
-                <CameraIcon />
-                <span>Add /public/hero.jpg</span>
-              </div>
-            </div>
-            <div className="hero-floating-stats">
-              {SITE.metrics.slice(0, 3).map((m) => (
-                <div key={m.label} className="hero-mini-stat">
-                  <div className="hero-mini-stat-value">{m.value}</div>
-                  <div className="hero-mini-stat-label">{m.label}</div>
-                </div>
-              ))}
-            </div>
+          {/* Scroll indicator */}
+          <div className="hero-scroll-indicator animate-in delay-5">
+            <span>Explore</span>
+            <div className="hero-scroll-arrow"><ChevronDown /></div>
           </div>
         </div>
       </section>
@@ -398,28 +411,32 @@ export default function Page() {
         </div>
       </div>
 
-      {/* ════════ WHY WADE — Key Differentiators ════════ */}
+      {/* ════════ WHY WADE ════════ */}
       <section className="section section-dark">
         <div className="container">
-          <div className="section-header">
-            <div className="section-eyebrow">Why Brands Choose Wade</div>
-            <h2 className="section-title">Real Trust. Real Results.</h2>
-            <p className="section-subtitle">
-              In a world of sponsored posts that feel forced, my audience engages because they trust me.
-              That trust translates directly into results for your brand.
-            </p>
-          </div>
+          <Reveal>
+            <div className="section-header">
+              <div className="section-eyebrow">Why Brands Choose Wade</div>
+              <h2 className="section-title">Real Trust. Real Results.</h2>
+              <p className="section-subtitle">
+                In a world of sponsored posts that feel forced, my audience engages because they trust me.
+                That trust translates directly into results for your brand.
+              </p>
+            </div>
+          </Reveal>
 
           <div className="why-grid">
-            {SITE.whyWade.map((item) => (
-              <div key={item.title} className="why-card">
-                <div className="why-icon">{item.icon}</div>
-                <div>
-                  <div className="why-card-title">{item.title}</div>
-                  <div className="why-card-text">{item.text}</div>
-                  <div className="why-card-stat">{item.stat}</div>
+            {SITE.whyWade.map((item, i) => (
+              <Reveal key={item.title} delay={i * 100}>
+                <div className="why-card">
+                  <div className="why-icon">{item.icon}</div>
+                  <div>
+                    <div className="why-card-title">{item.title}</div>
+                    <div className="why-card-text">{item.text}</div>
+                    <div className="why-card-stat">{item.stat}</div>
+                  </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -429,57 +446,76 @@ export default function Page() {
       <section id="about" className="section section-light">
         <div className="container">
           <div className="about-grid">
-            <div className="about-image">
-              {/* 📸 Replace with: <img src="/about.jpg" alt="Wade Critides" style={{width:'100%',height:'100%',objectFit:'cover'}} /> */}
-              <CameraIcon />
-              <span>Add /public/about.jpg</span>
-            </div>
-
-            <div>
-              <div className="about-eyebrow">The Person Behind The Content</div>
-              <h2 className="about-heading">
-                Strength starts at home.<br />
-                Everything else follows.
-              </h2>
-
-              {SITE.about.paragraphs.map((p, i) => (
-                <p key={i} className="about-text">{p}</p>
-              ))}
-
-              <div className="about-pillars">
-                {SITE.about.pillars.map((pillar) => (
-                  <span key={pillar} className="about-pillar-tag">{pillar}</span>
-                ))}
+            <Reveal>
+              <div className="about-monogram">
+                {/* 📸 Replace entire div with: <img src="/about.jpg" alt="Wade Critides" style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'var(--r-xl)'}} /> */}
+                <div className="about-monogram-letters">WC</div>
+                <div className="about-monogram-sub">Wade Critides</div>
               </div>
-            </div>
+            </Reveal>
+
+            <Reveal delay={150}>
+              <div>
+                <div className="about-eyebrow">The Person Behind The Content</div>
+                <h2 className="about-heading">
+                  Strength starts at home.<br />
+                  Everything else follows.
+                </h2>
+
+                {SITE.about.paragraphs.map((p, i) => (
+                  <p key={i} className="about-text">{p}</p>
+                ))}
+
+                <div className="about-pillars">
+                  {SITE.about.pillars.map((pillar) => (
+                    <span key={pillar} className="about-pillar-tag">{pillar}</span>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
           </div>
         </div>
+      </section>
+
+      {/* ════════ MANIFESTO QUOTE ════════ */}
+      <section className="manifesto">
+        <Reveal>
+          <div className="manifesto-inner">
+            <div className="manifesto-mark">&ldquo;</div>
+            <p className="manifesto-text">{SITE.manifesto.quote}</p>
+            <p className="manifesto-attribution">{SITE.manifesto.attribution}</p>
+          </div>
+        </Reveal>
       </section>
 
       {/* ════════ CONTENT PILLARS ════════ */}
       <section id="content" className="section section-cream">
         <div className="container">
-          <div className="section-header">
-            <div className="section-eyebrow">What I Create</div>
-            <h2 className="section-title">Content That Connects</h2>
-            <p className="section-subtitle">
-              Every piece of content I create lives at the intersection of real life and real value.
-              These are the pillars that drive my audience's trust — and your brand's opportunity.
-            </p>
-          </div>
+          <Reveal>
+            <div className="section-header">
+              <div className="section-eyebrow">What I Create</div>
+              <h2 className="section-title">Content That Connects</h2>
+              <p className="section-subtitle">
+                Every piece of content I create lives at the intersection of real life and real value.
+                These are the pillars that drive my audience's trust — and your brand's opportunity.
+              </p>
+            </div>
+          </Reveal>
 
           <div className="pillars-grid">
-            {SITE.contentPillars.map((pillar) => (
-              <div key={pillar.title} className="pillar-card">
-                <div className="pillar-icon">{pillar.icon}</div>
-                <div className="pillar-card-title">{pillar.title}</div>
-                <div className="pillar-card-text">{pillar.text}</div>
-                <div className="pillar-topics">
-                  {pillar.topics.map((t) => (
-                    <span key={t} className="pillar-topic">{t}</span>
-                  ))}
+            {SITE.contentPillars.map((pillar, i) => (
+              <Reveal key={pillar.title} delay={i * 80}>
+                <div className="pillar-card">
+                  <div className="pillar-icon">{pillar.icon}</div>
+                  <div className="pillar-card-title">{pillar.title}</div>
+                  <div className="pillar-card-text">{pillar.text}</div>
+                  <div className="pillar-topics">
+                    {pillar.topics.map((t) => (
+                      <span key={t} className="pillar-topic">{t}</span>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -488,135 +524,153 @@ export default function Page() {
       {/* ════════ AUDIENCE INSIGHTS ════════ */}
       <section id="audience" className="section section-light">
         <div className="container">
-          <div className="section-header">
-            <div className="section-eyebrow">Audience Insights</div>
-            <h2 className="section-title">Who You're Reaching</h2>
-            <p className="section-subtitle">
-              My audience is primarily men 28–44 who are married, have kids, and are building something meaningful.
-              They care about fitness, financial growth, and being present at home. They buy what I recommend
-              because they trust how I live.
-            </p>
-          </div>
+          <Reveal>
+            <div className="section-header">
+              <div className="section-eyebrow">Audience Insights</div>
+              <h2 className="section-title">Who You're Reaching</h2>
+              <p className="section-subtitle">
+                My audience is primarily men 28–44 who are married, have kids, and are building something meaningful.
+                They care about fitness, financial growth, and being present at home. They buy what I recommend
+                because they trust how I live.
+              </p>
+            </div>
+          </Reveal>
 
           <div className="audience-grid">
-            <div className="audience-card">
-              <div className="audience-card-title">Age Distribution</div>
-              <div className="audience-bar-group">
-                {SITE.audience.age.map((a) => (
-                  <div key={a.range} className="audience-bar-row">
-                    <div className="audience-bar-label">{a.range}</div>
-                    <div className="audience-bar-track">
-                      <div className="audience-bar-fill" style={{ width: `${a.pct}%` }} />
+            <Reveal>
+              <div className="audience-card">
+                <div className="audience-card-title">Age Distribution</div>
+                <div className="audience-bar-group">
+                  {SITE.audience.age.map((a) => (
+                    <div key={a.range} className="audience-bar-row">
+                      <div className="audience-bar-label">{a.range}</div>
+                      <div className="audience-bar-track">
+                        <div className="audience-bar-fill" style={{ width: `${a.pct}%` }} />
+                      </div>
+                      <div className="audience-bar-value">{a.pct}%</div>
                     </div>
-                    <div className="audience-bar-value">{a.pct}%</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="audience-card">
-              <div className="audience-card-title">Gender Split</div>
-              <div className="audience-bar-group">
-                {SITE.audience.gender.map((g) => (
-                  <div key={g.label} className="audience-bar-row">
-                    <div className="audience-bar-label">{g.label}</div>
-                    <div className="audience-bar-track">
-                      <div className="audience-bar-fill" style={{ width: `${g.pct}%` }} />
-                    </div>
-                    <div className="audience-bar-value">{g.pct}%</div>
-                  </div>
-                ))}
-              </div>
-              <div className="audience-card-title" style={{ marginTop: 32 }}>Top Locations</div>
-              {SITE.audience.locations.map((loc) => (
-                <div key={loc.place} className="audience-row">
-                  <div className="audience-row-label">{loc.place}</div>
-                  <div className="audience-row-value">{loc.pct}</div>
+                  ))}
                 </div>
-              ))}
-            </div>
+              </div>
+            </Reveal>
 
-            <div className="audience-card audience-full-width">
-              <div className="audience-card-title">Audience Interests & Affinities</div>
-              <div className="audience-interests">
-                {SITE.audience.interests.map((interest) => (
-                  <span key={interest} className="audience-interest">{interest}</span>
+            <Reveal delay={100}>
+              <div className="audience-card">
+                <div className="audience-card-title">Gender Split</div>
+                <div className="audience-bar-group">
+                  {SITE.audience.gender.map((g) => (
+                    <div key={g.label} className="audience-bar-row">
+                      <div className="audience-bar-label">{g.label}</div>
+                      <div className="audience-bar-track">
+                        <div className="audience-bar-fill" style={{ width: `${g.pct}%` }} />
+                      </div>
+                      <div className="audience-bar-value">{g.pct}%</div>
+                    </div>
+                  ))}
+                </div>
+                <div className="audience-card-title" style={{ marginTop: 32 }}>Top Locations</div>
+                {SITE.audience.locations.map((loc) => (
+                  <div key={loc.place} className="audience-row">
+                    <div className="audience-row-label">{loc.place}</div>
+                    <div className="audience-row-value">{loc.pct}</div>
+                  </div>
                 ))}
               </div>
-            </div>
+            </Reveal>
+
+            <Reveal>
+              <div className="audience-card audience-full-width">
+                <div className="audience-card-title">Audience Interests &amp; Affinities</div>
+                <div className="audience-interests">
+                  {SITE.audience.interests.map((interest) => (
+                    <span key={interest} className="audience-interest">{interest}</span>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
 
-      {/* ════════ PORTFOLIO / UGC SHOWCASE ════════ */}
+      {/* ════════ PORTFOLIO ════════ */}
       <section id="portfolio" className="section section-dark">
         <div className="container">
-          <div className="section-header">
-            <div className="section-eyebrow">Portfolio</div>
-            <h2 className="section-title">Content In Action</h2>
-            <p className="section-subtitle">
-              From hook-driven UGC to organic lifestyle integrations — here's a sample of the content
-              I create for brands. Every piece is authentic, performance-minded, and built to convert.
-            </p>
-          </div>
+          <Reveal>
+            <div className="section-header">
+              <div className="section-eyebrow">Portfolio</div>
+              <h2 className="section-title">Content In Action</h2>
+              <p className="section-subtitle">
+                From hook-driven UGC to organic lifestyle integrations — here's a sample of the content
+                I create for brands. Every piece is authentic, performance-minded, and built to convert.
+              </p>
+            </div>
+          </Reveal>
 
           <div className="portfolio-grid">
-            {SITE.portfolio.map((item) => (
+            {SITE.portfolio.map((item, i) => (
+              <Reveal key={item.label} delay={i * 80}>
+                <a
+                  href={SITE.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="portfolio-item"
+                >
+                  <span className="portfolio-type-badge">{item.type}</span>
+                  <div className="portfolio-play"><PlayIcon /></div>
+                  <div className="portfolio-label">{item.label}</div>
+                  <div className="portfolio-brand">{item.brand}</div>
+                </a>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal>
+            <div className="brand-categories">
+              {SITE.brandCategories.map((cat) => (
+                <span key={cat} className="brand-category">{cat}</span>
+              ))}
+            </div>
+
+            <div style={{ textAlign: "center", marginTop: 48 }}>
               <a
-                key={item.label}
                 href={SITE.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="portfolio-item"
+                className="btn btn-outline-light btn-lg"
               >
-                <span className="portfolio-type-badge">{item.type}</span>
-                <div className="portfolio-play"><PlayIcon /></div>
-                <div className="portfolio-label">{item.label}</div>
-                <div className="portfolio-brand">{item.brand}</div>
+                <InstagramIcon size={18} />
+                See More on Instagram
               </a>
-            ))}
-          </div>
-
-          <div className="brand-categories">
-            {SITE.brandCategories.map((cat) => (
-              <span key={cat} className="brand-category">{cat}</span>
-            ))}
-          </div>
-
-          <div style={{ textAlign: "center", marginTop: 48 }}>
-            <a
-              href={SITE.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-outline-light btn-lg"
-            >
-              <InstagramIcon size={18} />
-              See More on Instagram
-            </a>
-          </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 
       {/* ════════ TESTIMONIALS ════════ */}
       <section className="section section-cream">
         <div className="container">
-          <div className="section-header">
-            <div className="section-eyebrow">Partner Feedback</div>
-            <h2 className="section-title">What Brand Partners Say</h2>
-            <p className="section-subtitle">
-              The best partnerships are built on trust, communication, and results.
-              Here's what brands experience when they work with me.
-            </p>
-          </div>
+          <Reveal>
+            <div className="section-header">
+              <div className="section-eyebrow">Partner Feedback</div>
+              <h2 className="section-title">What Brand Partners Say</h2>
+              <p className="section-subtitle">
+                The best partnerships are built on trust, communication, and results.
+                Here's what brands experience when they work with me.
+              </p>
+            </div>
+          </Reveal>
 
           <div className="testimonials-grid">
             {SITE.testimonials.map((t, i) => (
-              <div key={i} className="testimonial-card">
-                <div className="testimonial-quote-mark">"</div>
-                <p className="testimonial-text">{t.text}</p>
-                <div className="testimonial-author">{t.author}</div>
-                <div className="testimonial-role">{t.role}</div>
-              </div>
+              <Reveal key={i} delay={i * 100}>
+                <div className="testimonial-card">
+                  <div className="testimonial-stars">★★★★★</div>
+                  <p className="testimonial-text">&ldquo;{t.text}&rdquo;</p>
+                  <div className="testimonial-divider" />
+                  <div className="testimonial-author">{t.author}</div>
+                  <div className="testimonial-role">{t.role}</div>
+                </div>
+              </Reveal>
             ))}
           </div>
           <p className="testimonials-note">
@@ -628,77 +682,89 @@ export default function Page() {
       {/* ════════ INSTAGRAM BANNER ════════ */}
       <section className="section section-dark" style={{ padding: 0 }}>
         <div className="ig-banner">
-          <a
-            href={SITE.instagram}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="ig-handle-link"
-          >
-            <InstagramIcon size={40} /> {SITE.handle}
-          </a>
-          <div className="ig-subtitle">
-            Follow for daily content on fitness, family leadership, and building with intention
-          </div>
+          <Reveal>
+            <a
+              href={SITE.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ig-handle-link"
+            >
+              <InstagramIcon size={40} /> {SITE.handle}
+            </a>
+            <div className="ig-subtitle">
+              Follow for daily content on fitness, family leadership, and building with intention
+            </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* ════════ PARTNERSHIP TYPES ════════ */}
+      {/* ════════ SERVICES ════════ */}
       <section id="services" className="section section-light">
         <div className="container">
-          <div className="section-header">
-            <div className="section-eyebrow">Services</div>
-            <h2 className="section-title">Ways To Work Together</h2>
-            <p className="section-subtitle">
-              Flexible partnership structures built around your goals.
-              Every collaboration starts with alignment — I only work with brands I genuinely believe in.
-            </p>
-          </div>
+          <Reveal>
+            <div className="section-header">
+              <div className="section-eyebrow">Services</div>
+              <h2 className="section-title">Ways To Work Together</h2>
+              <p className="section-subtitle">
+                Flexible partnership structures built around your goals.
+                Every collaboration starts with alignment — I only work with brands I genuinely believe in.
+              </p>
+            </div>
+          </Reveal>
 
           <div className="services-grid">
             {SITE.services.map((service, i) => (
-              <div key={service.title} className="service-card">
-                <div className="service-number">0{i + 1}</div>
-                <div className="service-card-title">{service.title}</div>
-                <div className="service-card-text">{service.text}</div>
-                <div className="service-features">
-                  {service.features.map((feat) => (
-                    <div key={feat} className="service-feature">
-                      <span className="service-check"><CheckIcon /></span>
-                      {feat}
-                    </div>
-                  ))}
+              <Reveal key={service.title} delay={i * 80}>
+                <div className="service-card">
+                  <div className="service-number">0{i + 1}</div>
+                  <div className="service-card-title">{service.title}</div>
+                  <div className="service-card-text">{service.text}</div>
+                  <div className="service-features">
+                    {service.features.map((feat) => (
+                      <div key={feat} className="service-feature">
+                        <span className="service-check"><CheckIcon /></span>
+                        {feat}
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
 
-          <div style={{ textAlign: "center", marginTop: 48 }}>
-            <a href="#contact" className="btn btn-primary btn-lg">
-              Start a Conversation <ArrowIcon />
-            </a>
-          </div>
+          <Reveal>
+            <div style={{ textAlign: "center", marginTop: 48 }}>
+              <a href="#contact" className="btn btn-primary btn-lg">
+                Start a Conversation <ArrowIcon />
+              </a>
+            </div>
+          </Reveal>
         </div>
       </section>
 
       {/* ════════ PROCESS ════════ */}
       <section className="section section-cream">
         <div className="container">
-          <div className="section-header">
-            <div className="section-eyebrow">The Process</div>
-            <h2 className="section-title">Simple. Authentic. Effective.</h2>
-            <p className="section-subtitle">
-              Working with me is straightforward. I keep things professional, responsive,
-              and focused on delivering content that performs.
-            </p>
-          </div>
+          <Reveal>
+            <div className="section-header">
+              <div className="section-eyebrow">The Process</div>
+              <h2 className="section-title">Simple. Authentic. Effective.</h2>
+              <p className="section-subtitle">
+                Working with me is straightforward. I keep things professional, responsive,
+                and focused on delivering content that performs.
+              </p>
+            </div>
+          </Reveal>
 
           <div className="process-grid">
             {SITE.process.map((step, i) => (
-              <div key={step.title} className="process-step">
-                <div className="process-number">{i + 1}</div>
-                <div className="process-step-title">{step.title}</div>
-                <div className="process-step-text">{step.text}</div>
-              </div>
+              <Reveal key={step.title} delay={i * 100}>
+                <div className="process-step">
+                  <div className="process-number">{i + 1}</div>
+                  <div className="process-step-title">{step.title}</div>
+                  <div className="process-step-text">{step.text}</div>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -708,107 +774,111 @@ export default function Page() {
       <section id="contact" className="section section-light">
         <div className="container">
           <div className="contact-grid">
-            <div>
-              <h2 className="contact-heading">
-                Let's Create Something<br />Authentic Together
-              </h2>
-              <p className="contact-text">
-                Whether you're exploring a one-time UGC project or a long-term brand ambassadorship,
-                I'd love to hear about your vision. Share your goals, timeline, and budget range
-                — I respond to every inquiry within 48 hours.
-              </p>
+            <Reveal>
+              <div>
+                <h2 className="contact-heading">
+                  Let's Create Something<br />Authentic Together
+                </h2>
+                <p className="contact-text">
+                  Whether you're exploring a one-time UGC project or a long-term brand ambassadorship,
+                  I'd love to hear about your vision. Share your goals, timeline, and budget range
+                  — I respond to every inquiry within 48 hours.
+                </p>
 
-              <div className="contact-info-item">
-                <div className="contact-icon"><MailIcon /></div>
-                <div>
-                  <div className="contact-info-label">Brand Partnerships</div>
-                  <div className="contact-info-value">{SITE.email}</div>
+                <div className="contact-info-item">
+                  <div className="contact-icon"><MailIcon /></div>
+                  <div>
+                    <div className="contact-info-label">Brand Partnerships</div>
+                    <div className="contact-info-value">{SITE.email}</div>
+                  </div>
+                </div>
+
+                <div className="contact-info-item">
+                  <div className="contact-icon"><InstagramIcon /></div>
+                  <div>
+                    <div className="contact-info-label">Instagram</div>
+                    <a
+                      href={SITE.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="contact-info-value"
+                      style={{ display: "block" }}
+                    >
+                      {SITE.handle}
+                    </a>
+                  </div>
+                </div>
+
+                <div className="contact-info-item" style={{ border: "none" }}>
+                  <div className="contact-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="contact-info-label">Response Time</div>
+                    <div className="contact-info-value">Within 48 hours</div>
+                  </div>
                 </div>
               </div>
+            </Reveal>
 
-              <div className="contact-info-item">
-                <div className="contact-icon"><InstagramIcon /></div>
-                <div>
-                  <div className="contact-info-label">Instagram</div>
-                  <a
-                    href={SITE.instagram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="contact-info-value"
-                    style={{ display: "block" }}
-                  >
-                    {SITE.handle}
-                  </a>
+            <Reveal delay={150}>
+              <form
+                action={`mailto:${SITE.email}?subject=Brand%20Partnership%20Inquiry`}
+                method="post"
+                encType="text/plain"
+                className="contact-form"
+              >
+                <div className="form-row">
+                  <div className="form-group">
+                    <label className="form-label">Your Name</label>
+                    <input name="name" required placeholder="Full name" className="form-input" />
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label">Email</label>
+                    <input name="email" type="email" required placeholder="you@brand.com" className="form-input" />
+                  </div>
                 </div>
-              </div>
 
-              <div className="contact-info-item" style={{ border: "none" }}>
-                <div className="contact-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10" />
-                    <polyline points="12 6 12 12 16 14" />
-                  </svg>
+                <div className="form-row">
+                  <div className="form-group">
+                    <label className="form-label">Brand / Company</label>
+                    <input name="brand" placeholder="Your brand name" className="form-input" />
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label">Partnership Type</label>
+                    <select name="type" className="form-select" defaultValue="">
+                      <option value="" disabled>Select an option</option>
+                      <option>UGC Content Creation</option>
+                      <option>Organic Social Integration</option>
+                      <option>Brand Ambassadorship</option>
+                      <option>Campaign Collaboration</option>
+                      <option>Not sure yet</option>
+                    </select>
+                  </div>
                 </div>
-                <div>
-                  <div className="contact-info-label">Response Time</div>
-                  <div className="contact-info-value">Within 48 hours</div>
-                </div>
-              </div>
-            </div>
 
-            <form
-              action={`mailto:${SITE.email}?subject=Brand%20Partnership%20Inquiry`}
-              method="post"
-              encType="text/plain"
-              className="contact-form"
-            >
-              <div className="form-row">
                 <div className="form-group">
-                  <label className="form-label">Your Name</label>
-                  <input name="name" required placeholder="Full name" className="form-input" />
+                  <label className="form-label">Tell Me About Your Project</label>
+                  <textarea
+                    name="message"
+                    required
+                    placeholder="Share your goals, timeline, deliverables, and budget range..."
+                    className="form-textarea"
+                  />
                 </div>
-                <div className="form-group">
-                  <label className="form-label">Email</label>
-                  <input name="email" type="email" required placeholder="you@brand.com" className="form-input" />
-                </div>
-              </div>
 
-              <div className="form-row">
-                <div className="form-group">
-                  <label className="form-label">Brand / Company</label>
-                  <input name="brand" placeholder="Your brand name" className="form-input" />
-                </div>
-                <div className="form-group">
-                  <label className="form-label">Partnership Type</label>
-                  <select name="type" className="form-select" defaultValue="">
-                    <option value="" disabled>Select an option</option>
-                    <option>UGC Content Creation</option>
-                    <option>Organic Social Integration</option>
-                    <option>Brand Ambassadorship</option>
-                    <option>Campaign Collaboration</option>
-                    <option>Not sure yet</option>
-                  </select>
-                </div>
-              </div>
+                <button type="submit" className="btn btn-primary btn-full btn-lg">
+                  Send Partnership Inquiry <ArrowIcon />
+                </button>
 
-              <div className="form-group">
-                <label className="form-label">Tell Me About Your Project</label>
-                <textarea
-                  name="message"
-                  required
-                  placeholder="Share your goals, timeline, deliverables, and budget range..."
-                  className="form-textarea"
-                />
-              </div>
-
-              <button type="submit" className="btn btn-primary btn-full btn-lg">
-                Send Partnership Inquiry <ArrowIcon />
-              </button>
-
-              <p style={{ fontSize: 12, color: "var(--gray-400)", lineHeight: 1.6, textAlign: "center" }}>
-                I respond to every inquiry. No spam — ever.
-              </p>
-            </form>
+                <p style={{ fontSize: 12, color: "var(--gray-400)", lineHeight: 1.6, textAlign: "center" }}>
+                  I respond to every inquiry. No spam — ever.
+                </p>
+              </form>
+            </Reveal>
           </div>
         </div>
       </section>
