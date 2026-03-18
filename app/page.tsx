@@ -498,7 +498,7 @@ export default function Page() {
       </div>
 
       {/* ════════ WHY WADE ════════ */}
-      <section className="section section-dark">
+      <section className="section section-cream">
         <div className="container">
           <Reveal>
             <div className="section-header">
@@ -750,7 +750,7 @@ export default function Page() {
       </section>
 
       {/* ════════ BRAND PARTNERS ════════ */}
-      <section id="brands" className="section section-dark">
+      <section id="brands" className="section section-light">
         <div className="container">
           <Reveal>
             <div className="section-header">
