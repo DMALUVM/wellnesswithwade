@@ -186,12 +186,33 @@ const SITE = {
   },
 
   portfolio: [
-    { label: "Wellness Product Feature", type: "UGC", brand: "Supplement Brand" },
-    { label: "Training Equipment Review", type: "Reel", brand: "Fitness Equipment" },
-    { label: "Recovery Routine Integration", type: "UGC", brand: "Recovery Tech" },
-    { label: "Family Lifestyle Content", type: "Story", brand: "Family & Home" },
-    { label: "Nutrition Brand Unboxing", type: "UGC", brand: "Nutrition Brand" },
-    { label: "Morning Routine Feature", type: "Reel", brand: "Lifestyle & Wellness" },
+    /* ─────────────────────────────────────────────────────────────────
+       📹  HOW TO LINK PORTFOLIO ITEMS TO YOUR REELS / VIDEOS
+       ─────────────────────────────────────────────────────────────────
+       Add the Instagram Reel URL (or any video URL) to the "link" field.
+       Visitors will click the card and go directly to that video.
+       Leave link as "" to fall back to your main Instagram profile.
+
+       Example:
+         link: "https://www.instagram.com/reel/ABC123/"
+    */
+    { label: "Wellness Product Feature",    type: "UGC",   brand: "Supplement Brand",    link: "" },
+    { label: "Training Equipment Review",   type: "Reel",  brand: "Fitness Equipment",   link: "" },
+    { label: "Recovery Routine Integration",type: "UGC",   brand: "Recovery Tech",       link: "" },
+    { label: "Family Lifestyle Content",    type: "Story", brand: "Family & Home",       link: "" },
+    { label: "Nutrition Brand Unboxing",    type: "UGC",   brand: "Nutrition Brand",     link: "" },
+    { label: "Morning Routine Feature",     type: "Reel",  brand: "Lifestyle & Wellness",link: "" },
+  ],
+
+  brandPartners: [
+    "Joymode", "MeUndies", "Good Chop", "Danger Coffee", "Mud/Wtr",
+    "Nutrafol", "Currex", "Flakes", "Manukora", "Numin",
+    "Tallowbourn", "The Grounding Co", "Instant Hydration", "Thrive Probiotic",
+    "Suppgrade Labs", "Our Place Cookware", "Nads Underwear", "Alpha Lion",
+    "Anomaly", "Scott's Lawn", "Create Creatine", "Bubs Natural",
+    "Cometeer", "Lifeboost Coffee", "Rise Bar", "Omre",
+    "Chubbies", "Ketone IQ", "Suavs", "Labcorp",
+    "Function Health",
   ],
 
   brandCategories: [
@@ -375,6 +396,7 @@ export default function Page() {
             <a href="#content" className="nav-link">Content</a>
             <a href="#audience" className="nav-link">Audience</a>
             <a href="#portfolio" className="nav-link">Work</a>
+            <a href="#brands" className="nav-link">Brands</a>
             <a href="#services" className="nav-link">Services</a>
             <a href="#contact" className="nav-cta-btn">
               Partner With Me <ArrowIcon />
@@ -683,10 +705,11 @@ export default function Page() {
             {SITE.portfolio.map((item, i) => (
               <Reveal key={item.label} delay={i * 80}>
                 <a
-                  href={SITE.instagram}
+                  href={item.link || SITE.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`portfolio-item${SITE.media.portfolioImages[i] ? " has-thumb" : ""}`}
+                  title={item.link ? `Watch: ${item.label}` : "View on Instagram"}
                 >
                   {SITE.media.portfolioImages[i] && (
                     <img
@@ -722,6 +745,33 @@ export default function Page() {
                 See More on Instagram
               </a>
             </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ════════ BRAND PARTNERS ════════ */}
+      <section id="brands" className="section section-dark">
+        <div className="container">
+          <Reveal>
+            <div className="section-header">
+              <div className="section-eyebrow">Past Collaborations</div>
+              <h2 className="section-title">Brands I've Worked With</h2>
+              <p className="section-subtitle">
+                From supplements and fitness gear to lifestyle and home — I've partnered with brands that align with how I actually live.
+                Every collaboration has been authentic content that moved real audiences.
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal delay={100}>
+            <div className="brand-partners-grid">
+              {SITE.brandPartners.map((brand) => (
+                <span key={brand} className="brand-partner-tag">{brand}</span>
+              ))}
+            </div>
+            <p className="brand-partners-note">
+              31+ brand partnerships across wellness, fitness, nutrition, lifestyle &amp; more
+            </p>
           </Reveal>
         </div>
       </section>
