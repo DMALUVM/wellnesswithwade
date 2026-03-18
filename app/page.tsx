@@ -62,36 +62,36 @@ const SITE = {
   hero: {
     eyebrow: ["Content Creator", "UGC Specialist", "Brand Partner"],
     description:
-      "I create authentic content that moves real people — rooted in family leadership, elite fitness, and intentional living. Brands partner with me because my audience doesn't just scroll past. They stop, engage, and buy what I recommend — because they trust how I live.",
+      "I create authentic content that moves real people — rooted in family leadership, elite fitness, and intentional living. 100K followers, >5% engagement, 5.2M monthly views. Brands partner with me because my audience doesn't just scroll past. They stop, engage, and buy what I recommend — because they trust how I live.",
     descriptionShort:
-      "Authentic content that moves real people. My audience trusts how I live — and that trust converts for your brand.",
+      "100K followers. >5% engagement. 5.2M monthly views. My audience trusts how I live — and that trust converts for your brand.",
   },
 
   metrics: [
-    { value: "95K+", label: "Followers" },
-    { value: "4.2%", label: "Engagement Rate" },
-    { value: "500K+", label: "Monthly Reach" },
-    { value: "28–44", label: "Core Audience" },
+    { value: "100K+", label: "Followers" },
+    { value: ">5%", label: "Engagement Rate" },
+    { value: "5.2M+", label: "Monthly Views" },
+    { value: "2.4M+", label: "Monthly Reach" },
   ],
 
   whyWade: [
     {
       icon: "🎯",
       title: "Authentic Reach",
-      text: "95K+ followers who don't just watch — they trust, engage, and take action on every recommendation.",
-      stat: "95K+",
+      text: "100K+ followers who don't just watch — they trust, engage, and take action on every recommendation.",
+      stat: "100K+",
     },
     {
-      icon: "👨‍👧‍👦",
-      title: "Premium Audience",
-      text: "Men 28-44, married, entrepreneurial, health-conscious. High intent, high purchasing power.",
-      stat: "62%",
+      icon: "🔥",
+      title: "High Engagement",
+      text: "237K+ interactions last 30 days with >5% engagement rate — 94.6% driven by Reels. Your brand gets seen.",
+      stat: ">5%",
     },
     {
-      icon: "🔁",
+      icon: "📈",
       title: "Proven Results",
-      text: "Brands come back because the content converts. Authentic integration outperforms scripted ads every time.",
-      stat: "3X+",
+      text: "5.2M views and 2.4M accounts reached last month alone. Content that converts, not just impressions.",
+      stat: "5.2M",
     },
   ],
 
@@ -156,22 +156,23 @@ const SITE = {
 
   audience: {
     age: [
-      { range: "25–34", pct: 38 },
-      { range: "35–44", pct: 32 },
-      { range: "18–24", pct: 15 },
-      { range: "45–54", pct: 12 },
-      { range: "55+", pct: 3 },
+      { range: "35–44", pct: 37 },
+      { range: "25–34", pct: 27 },
+      { range: "45–54", pct: 14 },
+      { range: "65+", pct: 10 },
+      { range: "55–64", pct: 7 },
+      { range: "18–24", pct: 5 },
     ],
     gender: [
-      { label: "Male", pct: 62 },
-      { label: "Female", pct: 38 },
+      { label: "Female", pct: 63 },
+      { label: "Male", pct: 37 },
     ],
     locations: [
-      { place: "United States", pct: "78%" },
-      { place: "Canada", pct: "8%" },
-      { place: "United Kingdom", pct: "5%" },
-      { place: "Australia", pct: "4%" },
-      { place: "Other", pct: "5%" },
+      { place: "United States", pct: "56.4%" },
+      { place: "Canada", pct: "6.4%" },
+      { place: "United Kingdom", pct: "6.0%" },
+      { place: "Australia", pct: "4.4%" },
+      { place: "India", pct: "2.6%" },
     ],
     interests: [
       "Health & Fitness",
@@ -624,8 +625,8 @@ export default function Page() {
               <div className="section-eyebrow">Audience Insights</div>
               <h2 className="section-title">Who You're Reaching</h2>
               <p className="section-subtitle">
-                My audience is primarily men 28–44 who are married, have kids, and are building something meaningful.
-                They care about fitness, financial growth, and being present at home. They buy what I recommend
+                My audience skews 25–44 (64%+ combined), health-conscious, and values-driven. They engage
+                at over 5% — 94.6% of that through Reels. 2.4M accounts reached last month. They buy what I recommend
                 because they trust how I live.
               </p>
             </div>
@@ -750,7 +751,7 @@ export default function Page() {
       </section>
 
       {/* ════════ BRAND PARTNERS ════════ */}
-      <section id="brands" className="section section-light">
+      <section id="brands" className="section section-cream">
         <div className="container">
           <Reveal>
             <div className="section-header">
