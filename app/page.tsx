@@ -172,7 +172,6 @@ const SITE = {
       { place: "Canada", pct: "6.4%" },
       { place: "United Kingdom", pct: "6.0%" },
       { place: "Australia", pct: "4.4%" },
-      { place: "India", pct: "2.6%" },
     ],
     interests: [
       "Health & Fitness",
