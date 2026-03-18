@@ -3,7 +3,23 @@
    v3: 11/10 — mobile-killer hero, scroll reveal, manifesto
 
    ✏️  Edit the SITE object below to update all content.
-   📸  Place images in /public/ and reference them here.
+
+   📸  HOW TO ADD YOUR OWN IMAGES & VIDEOS:
+   ─────────────────────────────────────────
+   1. Go to your GitHub repo → "public" folder
+   2. Click "Add file" → "Upload files" → drag your files in
+   3. Come back here and update the filenames in the "media"
+      section below (lines ~13–50)
+   4. Vercel will auto-deploy your changes in ~60 seconds
+
+   Supported formats:
+     Images → .jpg, .png, .webp (recommend .webp for speed)
+     Videos → .mp4 (keep under 15MB for fast loading)
+
+   Image size tips:
+     Hero background → 1920×1080 or larger
+     About photo     → 800×1000 (portrait)
+     Portfolio thumbs → 600×1067 (9:16 vertical)
    ============================================================ */
 
 import MobileNav from "./MobileNav";
@@ -15,6 +31,33 @@ const SITE = {
   instagram: "https://instagram.com/wellnesswithwade",
   email: "collabs@wellnesswithwade.com",
   tagline: "Husband. Father. High Performer.",
+
+  /* ──────────────────────────────────────────────────────────
+     📸  MEDIA — Change filenames here to update images/videos
+     ──────────────────────────────────────────────────────────
+     Set any value to "" (empty quotes) to hide that media
+     and fall back to the default design.
+  */
+  media: {
+    // HERO SECTION — background image or video behind the hero text
+    // Upload your file to /public/ and put the filename here
+    heroImage: "",           // e.g. "/hero-background.jpg"
+    heroVideo: "",           // e.g. "/hero-video.mp4"  (overrides heroImage if both set)
+
+    // ABOUT SECTION — Wade's portrait photo
+    aboutPhoto: "",          // e.g. "/wade-portrait.jpg"
+
+    // PORTFOLIO — thumbnail images for each portfolio item (in order)
+    // Must match the number of items in the portfolio array below
+    portfolioImages: [
+      "",                    // e.g. "/portfolio/wellness-product.jpg"
+      "",                    // e.g. "/portfolio/training-equipment.jpg"
+      "",                    // e.g. "/portfolio/recovery-routine.jpg"
+      "",                    // e.g. "/portfolio/family-lifestyle.jpg"
+      "",                    // e.g. "/portfolio/nutrition-unboxing.jpg"
+      "",                    // e.g. "/portfolio/morning-routine.jpg"
+    ],
+  },
 
   hero: {
     eyebrow: ["Content Creator", "UGC Specialist", "Brand Partner"],
@@ -344,6 +387,26 @@ export default function Page() {
 
       {/* ════════ HERO ════════ */}
       <section className="hero">
+        {/* Hero background media — shows when heroVideo or heroImage is set */}
+        {SITE.media.heroVideo ? (
+          <video
+            className="hero-media"
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster={SITE.media.heroImage || undefined}
+          >
+            <source src={SITE.media.heroVideo} type="video/mp4" />
+          </video>
+        ) : SITE.media.heroImage ? (
+          <img
+            className="hero-media"
+            src={SITE.media.heroImage}
+            alt=""
+            loading="eager"
+          />
+        ) : null}
         <div className="container hero-inner">
           <div className="hero-content">
             <div className="hero-eyebrow animate-in">
@@ -449,9 +512,18 @@ export default function Page() {
           <div className="about-grid">
             <Reveal>
               <div className="about-monogram">
-                {/* 📸 Replace entire div with: <img src="/about.jpg" alt="Wade Critides" style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'var(--r-xl)'}} /> */}
-                <div className="about-monogram-letters">WC</div>
-                <div className="about-monogram-sub">Wade Critides</div>
+                {SITE.media.aboutPhoto ? (
+                  <img
+                    src={SITE.media.aboutPhoto}
+                    alt="Wade Critides"
+                    className="about-photo"
+                  />
+                ) : (
+                  <>
+                    <div className="about-monogram-letters">WC</div>
+                    <div className="about-monogram-sub">Wade Critides</div>
+                  </>
+                )}
               </div>
             </Reveal>
 
@@ -614,8 +686,15 @@ export default function Page() {
                   href={SITE.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="portfolio-item"
+                  className={`portfolio-item${SITE.media.portfolioImages[i] ? " has-thumb" : ""}`}
                 >
+                  {SITE.media.portfolioImages[i] && (
+                    <img
+                      src={SITE.media.portfolioImages[i]}
+                      alt={item.label}
+                      className="portfolio-thumb"
+                    />
+                  )}
                   <span className="portfolio-type-badge">{item.type}</span>
                   <div className="portfolio-play"><PlayIcon /></div>
                   <div className="portfolio-label">{item.label}</div>

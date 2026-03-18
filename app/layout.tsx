@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     title: "Wade Critides | @wellnesswithwade",
     description:
       "Content Creator · UGC Specialist · Brand Partner. Authentic content rooted in family, fitness, and entrepreneurship.",
-    url: "https://wellnesswithwade.com",
+    url: "https://wellnesswithwade.vercel.app",
     siteName: "Wellness With Wade",
     type: "website",
     locale: "en_US",
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://wellnesswithwade.com",
+    canonical: "https://wellnesswithwade.vercel.app",
   },
 };
 
@@ -71,7 +71,7 @@ export default function RootLayout({
     "@type": "Person",
     name: "Wade Critides",
     alternateName: "Wellness With Wade",
-    url: "https://wellnesswithwade.com",
+    url: "https://wellnesswithwade.vercel.app",
     jobTitle: "Content Creator & UGC Specialist",
     description:
       "Husband, father, content creator, and entrepreneur specializing in wellness, fitness, and family lifestyle content for brand partnerships.",

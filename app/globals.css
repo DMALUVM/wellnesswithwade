@@ -141,6 +141,11 @@ ul, ol { list-style: none; }
   position: relative; min-height: 100vh; display: flex; align-items: center;
   background: var(--black); color: var(--white); overflow: hidden; padding-top: 72px;
 }
+/* Hero background image or video */
+.hero-media {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; z-index: 0; opacity: 0.35;
+}
 .hero::before {
   content: ''; position: absolute; inset: 0;
   background:
@@ -263,6 +268,11 @@ ul, ol { list-style: none; }
   font-size: 13px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
   color: rgba(255,255,255,0.35); margin-top: 12px;
 }
+/* About photo — replaces monogram when an image is provided */
+.about-photo {
+  width: 100%; height: 100%; object-fit: cover;
+  position: absolute; inset: 0; border-radius: var(--r-xl);
+}
 .about-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 3.5px; text-transform: uppercase; color: var(--warm); margin-bottom: 20px; }
 .about-heading { font-size: clamp(30px, 3.5vw, 44px); font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 28px; }
 .about-text { font-size: 16px; line-height: 1.9; color: var(--gray-500); margin-bottom: 16px; }
@@ -376,6 +386,20 @@ ul, ol { list-style: none; }
 .portfolio-item:hover .portfolio-play { background: var(--warm); border-color: var(--warm); transform: scale(1.1); }
 .portfolio-label { font-size: 15px; font-weight: 600; color: var(--white); }
 .portfolio-brand { font-size: 12px; color: var(--gray-500); }
+/* Portfolio thumbnail image — shows behind the card content */
+.portfolio-thumb {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; z-index: 0;
+}
+.portfolio-item.has-thumb::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.15) 100%);
+  z-index: 1;
+}
+.portfolio-item.has-thumb .portfolio-type-badge,
+.portfolio-item.has-thumb .portfolio-play,
+.portfolio-item.has-thumb .portfolio-label,
+.portfolio-item.has-thumb .portfolio-brand { position: relative; z-index: 2; }
 .portfolio-type-badge {
   position: absolute; top: 16px; left: 16px;
   font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
@@ -606,8 +630,8 @@ ul, ol { list-style: none; }
   .hero-desc-full { display: none; }
   .hero-desc-short { display: block; }
   .hero-description { font-size: 15px; line-height: 1.7; margin: 0 auto 24px; max-width: 340px; }
-  /* Show gold CTA, hide ghost — gold converts better */
-  .hero-cta-partner { display: inline-flex; width: 100%; }
+  /* Hide both hero CTAs — floating sticky bar handles conversion */
+  .hero-cta-partner { display: none; }
   .hero-cta-work { display: none; }
   .hero-meta { margin-top: 20px; gap: 8px; }
   .hero-booking-badge { font-size: 12px; padding: 6px 14px; }
